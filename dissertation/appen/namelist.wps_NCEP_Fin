@@ -1,0 +1,39 @@
+\begin{verbatim}
+&share
+ wrf_core = 'ARW',
+ max_dom = 2,                             ! Number of domains
+ start_date = '2018-08-30_00:00:00','2018-08-30_00:00:00','2018-09-04_00:00:00'
+ end_date   = '2018-10-31_00:00:00','2018-10-31_00:00:00','2018-09-14_00:00:00'
+ interval_seconds = 21600
+ io_form_geogrid = 2,
+/
+
+&geogrid
+ parent_id         =   1,   1,  2,        ! field information from grid resolution
+ parent_grid_ratio =   1,   5,  3,        ! ratio e.g. 1:5 to get high resolution
+ i_parent_start    =   1,  30,  43,       !
+ j_parent_start    =   1,  20,  42,
+ e_we              =  90, 151,  81,       ! (60-30)*5+1 = 2nd grid
+ e_sn              =  60, 121,  86,       ! (42-18)*5+1 = 2nd grid
+ geog_data_res     = '30s', '30s', '30s',
+ dx = 15000                                ! resolution in meters
+ dy = 15000                                ! resolution in meters
+ map_proj  = 'mercator',
+ ref_lat   = -23.5700,                    ! center of MASP
+ ref_lon   = -46.6100,                    ! center of MASP
+ truelat1  = -30.0000,
+! truelat2  = -24.0000,
+! stand_lon = -45.0000,
+ geog_data_path = '/scr2/alejandro/WRF/DATA/GEOG'
+/
+
+&ungrib
+ out_format = 'WPS',
+ prefix = 'FILE',
+/
+
+&metgrid
+ fg_name = 'FILE'    ! change this according to LBC name
+ io_form_metgrid = 2,
+/
+\end{verbatim}

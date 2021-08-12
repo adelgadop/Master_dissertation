@@ -1,0 +1,66 @@
+%\begin{center}
+\begin{ThreePartTable}
+\begin{TableNotes}
+{\scriptsize
+	\item[(a)] This configuration uses information from the WRF-Chem Model User's Guide \citep{Wang2019} and WRF-Chem version 3.9.1.1 User's Guide \citep{NOAA2018}.
+	\item[(b)] NCEP-FNL (ds083.2) and NCAR CESM (ds316.1) have 32 and 27 metgrid levels, respectively.}
+\end{TableNotes}
+\footnotesize
+\setcaptionmargin{1cm}
+\begin{longtable}[c]{l p{0.25\textwidth}l l}
+\caption[WRF-Chem model configuration]{WRF-Chem model configuration}\\
+\hline
+\multicolumn{1}{l}{\bf Description} &
+\multicolumn{1}{l}{\bf Option} &
+\multicolumn{1}{l}{\bf WRF codes}\\
+\hline \endfirsthead
+\multicolumn{3}{c}{\footnotesize{{\slshape{{\tablename} \thetable{}}} WRF-Chem model configuration (cont\ldots)
+}}\\
+\hline
+\multicolumn{1}{l}{\bf Description} &
+\multicolumn{1}{l}{\bf Option} &
+\multicolumn{1}{l}{\bf WRF codes}\\ 
+\hline \endhead
+\multicolumn{3}{r}{{\scriptsize{Continued on the next page\ldots}}}\\
+\endfoot
+\hline
+\insertTableNotes\\
+\endlastfoot
+\label{tab:config}
+% End of headers and footers
+{\bf Domain configuration
+\tnote{(a)}
+}\\
+Points to the west-east direction & 90, 151 & \verb|e_we|\\
+Points to the south-north direction & 60, 121 & \verb|e_sn|\\
+Vertical levels \tnote{(b)} & 32, 27 & \verb|num_metgrid_levels|\\
+Geographical dataset & 30 seg, 30 seg \\
+Grid spacing of first domain & 15 km & \verb|dx = 15000, dy = 15000|\\
+Grid spacing of second domain & 3 km & \verb|dx = 3000, dy = 3000|\\
+Map projection & Mercator & \verb|map_proj = 'mercator'|\\
+Center latitude & -23.57 & \verb|ref_lat=-23.57|\\
+Center longitude & -46.61 & \verb|ref_lon=-46.61|\\
+{\bf Physical parameterizations}\\
+Long-wave radiation & RRTM & \verb|ra_lw_physics=1, 1|\\
+Short-wave radiation & RRMG & \verb|ra_sw_physics=4, 4|\\
+Boundary layer & BouLac & \verb|bl_pbl_physics=8, 8|\\
+Surface layer & Revised MM5 scheme & \verb|sf_sfclay_physics = 1, 1|\\
+Land-surface & Noah & \verb|sf_surface_physics=2, 2|\\
+Cumulus cloud & Grell 3D & \verb|cu_physics=5, 5|\\
+Cloud microphysics & Morrison~double-moment scheme & \verb|mp_physics=10, 10|\\
+Urban surface & Urban canopy model & \verb|sf_urban_physics=1|\\
+{\bf Chemical options}\\
+Chemical lateral & Idealized profile  & \verb|chem_in_opt=0|\\
+ & re-initialization & \verb|chem_in_opt=1|\\
+Gas-phase mechanism & CBMZ without DMS & \verb|chem_opt=6, 6|\\
+Photolysis scheme & Fast-J & \verb|phot_opt=2|\\
+Emissions & Two 12 h files & \verb|io_style_emissions=1|\\
+ & CBMZ/MOSAIC anthropogenic emissions & \verb|emiss_opt=4, 4|\\
+ & RADM2 speciation & \verb|emiss_inpt_opt=102, 102|\\
+ & MEGAN2 & \verb|bio_emiss_opt=3|\\
+ &  & \verb|ne_area = 70|\\
+ & No GOCART dust emissions & \verb|dust_opt=0|\\
+ \hline
+\end{longtable}
+\end{ThreePartTable}
+%\end{center}

@@ -1,0 +1,162 @@
+% Preamble of a dissertation
+\input{preamble}
+
+\begin{document}
+	% Cover page, Title, Dedication, Acknowledgements, Abstract, Resumo
+	% Contents, List of Tables, List of Figures
+\frontmatter
+\pagestyle{frontmatter}% frontmatter page style
+\begin{spacing}{1.5}
+	
+	%Cover page and Title
+	\pagenumbering{roman}
+		\begin{titlepage}
+		\begin{center}
+			\vspace*{0.5cm}
+			\Large{Universidade de S\~{a}o Paulo}\\
+			\Large{Instituto de Astronomia, Geof\'{i}sica e Ci\^{e}ncias Atmosf\'{e}ricas}\\
+			\Large{Pos-Gradua\c{c}\~{a}o em Meteorologia}\\[3cm]
+			Alejandro Herman Delgado Peralta \\[3cm]
+
+			\huge{\textbf{Simulation of Tropospheric Ozone Formation in the Metropolitan Area of S\~{a}o Paulo under Climate Change Scenarios}}\\[3mm]
+			\vfill
+
+			S\~{a}o Paulo \\
+			\the\year \\
+			
+		\end{center}
+	\end{titlepage}
+	
+	\newpage
+	\thispagestyle{empty}
+		% Face page
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{0.5cm}
+			\Large{Alejandro Herman Delgado Peralta}\\[4cm]
+
+			\huge{\textbf{Simulation of Tropospheric Ozone Formation in the Metropolitan Area of S\~{a}o Paulo under Climate Change Scenarios}}\\[4cm]
+		\end{center}
+		\hfill\begin{minipage}{0.5\linewidth}
+		Dissertation submitted to "Instituto de Astronomia, Geof\'{i}sica e Ci\^{e}ncias Atmosf\'{e}ricas" (IAG) of the "Universidade de S\~{a}o Paulo". It is a partial requirement to obtain a Master's degree in Science.\\[1cm]
+				Concentration area: Meteorology\\
+				Advisor: Prof.$^a$ Dr.$^a$ Maria de F\'{a}tima Andrade
+		\end{minipage}
+	
+			\vfill
+	\begin{center}
+				S\~{a}o Paulo \\
+			\the\year \\
+	\end{center}
+	\end{titlepage}		
+
+	% Dedication
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill} \hfill\begin{minipage}{0.5\linewidth}
+	\begin{flushright}
+	\textit{This dissertation work is dedicated to my parents for their love and those who have committed to science.  \\
+	\#NoScienceNoFuture\\
+	\#SinCienciaNoHayFuturo \\
+	 }
+	\end{flushright}
+		\end{minipage}
+	\pagestyle{empty}
+	
+	% Acknowledgements
+	\newpage
+	\phantomsection\addcontentsline{toc}{chapter}{Acknowledgements}
+		\begin{center}
+			\LARGE \textbf{Acknowledgements}\\[2cm]
+		\end{center}
+		
+		This research was made possible by the CAPES (\textit{Coordena\c{c}\~{a}o de Aperfei\c{c}onamento de Pessoal de N\'{i}vel Superior}), who funded the work during the master's studies.
+		The University of S\~{a}o Paulo through the Institute of Astronomy, Geophysics and Atmospheric Sciences, and the laboratory LAPAt, supported this work by providing its facilities as a computer server and the remote connection during the pandemic.
+		I also thank the State Company for the Environment (CETESB) for providing free hourly data from its station network available on its website (QUALAR).
+		I am very grateful to the following people for supporting and encouraging me; without whose help, this work would never have been possible:
+		\begin{itemize}
+		    \item Prof.($^a$) Dr.($^a$) Maria de F\'{a}tima Andrade, who gave me many valuable insights in all stages of this work.
+		    Professors responsible of each master's courses and during the qualification exam: Adalgiza Fornaro, Edmilson Dias de Freitas, Maria Assun\c{c}\~{a}o Faus da Silva Dias, M\'{a}rcia Akemi Yamasoe, Ricardo Hallak, and Rita Yuri Ynoue.
+		   \item  My friends Dr. Angel Vara Vela and Dr. Mario Gavidia Calder\'{o}n for their valuable suggestions, discussions, support, and teaching related to the WRF-Chem model (setup, create emission files, and post-processing).
+		   \item To my friend Guisselle Castillo for the proofreading of the English writing.
+		   \item I also acknowledge Dr. Pieter Tans (NOAA/GML) and Dr. Ralph Keeling (Scripps Institution of Oceanography) for the permission to use the CO$_2$ trend plots.
+		\end{itemize}
+		
+		Also, I would like to thank my family (especially my wife and my little cat) for their support and encouragement to successfully address this challenge.
+		Finally, thanks to those friendly people to make my life more comfortable during my stay in Brazil and at the University of S\~{a}o Paulo.
+		
+		\textbf{Thank God for good memories,		
+		\textit{muito obrigado},
+      	\textit{muchas gracias}}.
+		
+		
+		\cleardoublepage
+	
+	% Abstract
+	\phantomsection\addcontentsline{toc}{chapter}{Abstract}
+	\begin{center}
+		\LARGE \textbf{Abstract}\\[2cm]
+	\end{center}
+	% main objective: impact of future climate change scenarios on o3 in the MASP
+    % Specific objectives: Prepare and updated emissions file and model configuration
+    % Specific objectives: Evaluation of WRF-Chem and simultations based on RCP scenarios. study current conditions that affect the tropospheric ozone formation through the WRF-Chem model compared with observations. Study how changes in future meteorological conditions impact the surface ozone formation in the MASP and around it.
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The impact on ozone formation in the Metropolitan Area of S\~{a}o Paulo (MASP) in 2030 was analyzed through two atmospheric projections based on the Representative Concentration Pathway (RCP) emission scenarios. The modeling system applied in this study was the Weather Research and Forecasting with Chemistry (WRF-Chem) model, maintaining the same emission rates in the MASP and surroundings from road transport, industry, and residential sectors of the base year of 2018.
+The study of tropospheric ozone (O$_3$) has a particular interest in air quality and climate change due to its importance as an atmospheric pollutant and a greenhouse gas.
+It was considered three simulations, corresponding to a control period (Sep.-Oct. 2018), and two projected scenarios for Sep.-Oct. 2030 based on the RCP emission projections for 4.5 and 8.5 W~m$^{-2}$ as radiative forcing.
+We evaluated the model performance for surface ozone and meteorological parameters using available hourly measurements from the \textit{Companhia de Tecnologia de Saneamento Ambiental} (CETESB, Environmental Protection Agency) and the \textit{Instituto de Astronomia, Geofísica e Ciências Atmosféricas} (IAG) Climatological Station. Also, emissions representativeness for September and October 2018 were verified through the WRF-Chem model using a configuration based on the MASP for actual conditions.
+The evaluation showed that surface ozone simulations for stations located in the MASP comply with two of three statistical benchmarks, mainly for the September 2018 period.
+Surface ozone simulations under RCP~4.5 and RCP~8.5 scenarios revealed variations, mainly in the peak ozone concentrations.
+For September (2018 and 2030), there was an increase in O$_3$ concentrations under the RCP~8.5 scenario due to the highest temperature. This increment reached +15.13~$\mu$g~m$^{-3}$ as an average in the MASP area, calculated from the maximum daily rolling mean of 8 hours (MDA8). However, simulations for the RCP~4.5 scenario showed a reduction of surface ozone formation in urban stations (-8.65~$\mu$g~m$^{-3}$ as an average). In this scenario, there was a slight decrease in temperatures as a monthly average.
+On the other hand, October (2018 and 2030) simulations presented differences in rainy periods that affected ozone formation. For this month, the RCP~4.5 scenario presented a marked increase of MDA8 surface ozone as a monthly average with +10.01~$\mu$g~m$^{-3}$ in stations classified as `Forest preservation.' The RCP~8.5 scenario for October 2030 presented a minor increase (+4.51 $\mu$g~m$^{-3}$ as MDA8 average) than the RCP~4.5 scenario.
+Also, the highest temperature in September 2030 (+2.55 $\pm$0.14 ºC as average) for the RCP~8.5 scenario increased the biogenic emission rates inside the domain what can be a driver for the ozone formation.  
+The relative humidity decreased (-6.82 $\pm$1.28 \% as average) for this specific scenario (RCP~8.5). Regarding accumulated rain, the RCP~4.5 scenario presented higher daily simulated values between September 20-24, 2030. However, simulations of total monthly rain values revealed a decrease for the RCP scenarios, in which the RCP~8.5 presented low values in Sep.-Oct. 2030. 
+These findings tell us that ozone concentrations increase under future meteorological conditions based on the climate change scenarios (RCP~4.5 and RCP~8.5). The decision-makers with this information can establish policies to mitigate the climate change impact on health.
+
+	\cleardoublepage
+	
+	% Resumo
+	\phantomsection\addcontentsline{toc}{chapter}{Resumo}
+		\begin{center}
+			\LARGE \textbf{Resumo}\\[2cm]
+		\end{center}
+			Duas projeções atmosféricas baseadas nos cenários de emissão chamados \textit{Representative Concentration Pathways} (RCP) foram usadas como condições meteorologicas inicias e de fronteira no modelo \textit{Weather Research and Forecasting with Chemistry} (WRF-Chem) para avaliar o impacto na formação do ozônio na Região Metropolitana de São Paulo (RMSP) e vizinhança em 2030.
+			O estudo do ozônio (O$_3$) troposférico apresenta um interesse especial pela importância na qualidade do ar e nas mudanças climáticas por ser um poluente atmosférico e um gás de efeito estufa.
+			Neste estudo foram realizadas três simulações com o modelo WRF-Chem. O primeiro foi um período de controle (setembro e outubro de 2018), e dois cenários projetados para o ano 2030 (setembro e outubro) com base nas projeções de emissão RCP para 4.5 e 8.5 W~m$^{-2}$ como forçamento radiativo.	Foram consideradas as mesmas taxas de emissão de poluentes dos setores de transporte rodoviário, industrial e residencial para o ano base de 2018 e a previsão em 2030.
+			O modelo WRF-Chem teve sua acurácia analisada para as simulações meteorológicas e de qualidade do ar com base em comparações com parâmetros meteorológicos e observações das medições horárias na rede de estações de monitoramento de qualidade do ar da Companhia de Tecnologia de Saneamento Ambiental (CETESB) e da estação meteorológica do Instituto de Astronomia, Geofísica e Ciências Atmosféricas (IAG), localizada em Água Funda.
+			As simulações de ozônio superficial para estações localizadas nas cidades do estado de São Paulo cumprem com dois dos três benchmarks estatísticos recomendados para avaliar modelos fotoquímicos, principalmente para o período de setembro de 2018. As simulações de ozônio de superfície sob os cenários RCP 4.5 e RCP 8.5 revelaram variações, principalmente nas concentrações de pico de ozônio. Para setembro (2018 e 2030), houve um aumento nas concentrações de O$_3$ sob o cenário RCP 8.5 devido à temperatura mais alta. O aumento atingiu +15.13 $\mu$g m$^{-3}$ em média na área da RMSP, calculado a partir da média móvel diária máxima de 8 horas (MDA8). No entanto, as simulações para os cenários do RCP 4.5 mostraram uma redução da formação de ozônio superficial (-8.65 $\mu$g m$^{-3}$ em média nas estações urbanas), em que houve uma ligeira diminuição das temperaturas. Por outro lado, as simulações para outubro (2018 e 2030) apresentaram diferenças nas condições chuvosas que afetam a formação de ozônio. 
+			Para este mês, o aumento do ozônio de superfície MDA8 como média mensal foi mais notadamente para o cenário RCP 4.5 com + 10.01 $\mu$g m$^{-3}$ em estações classificadas como 'Preservação de florestas'. O cenário RCP 8.5 para outubro de 2030 apresentou um pequeno aumento (+ 4.51 $\mu$g m$^{-3}$ as MDA8 média) do que o cenário RCP 4.5. A temperatura mais alta em setembro de 2030 (+ 2.55 $\pm$ 0.14ºC como média) para o cenário RCP 8.5 aumentou as taxas de emissão biogênica dentro do domínio, o que pode ser um estímulo para a formação de ozônio. A umidade relativa diminuiu (-6.82 $\pm$ 1.28 \% como média) para este cenário específico (RCP~8.5). Em relação à chuva acumulada, o cenário RCP 4.5 apresentou maiores valores simulados diários entre 20 e 24 de setembro de 2030. No entanto, as simulações dos valores totais de chuva mensal revelaram uma diminuição para os cenários futuros, em que o RCP 8.5 apresentou valores baixos em set.-out. 2030.
+			Os resultados encontrados de aumento das concentrações de ozônio sob condições meteorológicas futuras com base na temperatura mensal, podem ajudar os tomadores de decisão a estabelecer políticas para evitar impactos na saúde e no clima.
+		\cleardoublepage
+	
+	% Contents, List of Tables and List of Figures
+	\phantomsection\addcontentsline{toc}{chapter}{Contents}
+		\thispagestyle{empty} \tableofcontents \cleardoublepage
+
+	\phantomsection\addcontentsline{toc}{chapter}{List of Tables}
+		\thispagestyle{empty} \listoftables \cleardoublepage	
+		
+	\phantomsection\addcontentsline{toc}{chapter}{List of Figures}
+		\thispagestyle{empty} \listoffigures \cleardoublepage	
+	\mainmatter
+	% Chapters
+	\pagenumbering{arabic}
+	\pagestyle{mainmatter}
+		\input{chap_intro}
+		\input{chap_metho}
+		\input{chap_resul}
+		\input{chap_concl}
+
+% Bibliography, Appendix, and Index
+	\phantomsection\addcontentsline{toc}{chapter}{Bibliography}
+	
+	\bibliographystyle{agsm}
+	\bibliography{library} \clearpage
+
+	\begin{appendix}
+	\include{appendix}	
+	\end{appendix}
+	
+\end{spacing}
+\end{document}
+

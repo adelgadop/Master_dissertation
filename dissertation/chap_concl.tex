@@ -1,0 +1,119 @@
+\chapter{\bf Conclusions}\label{chap:concl}
+% -------------- %
+% MAIN OBJECTIVE %
+% -------------- % 
+%impact of the climate change scenarios on tropospheric ozone formation in the MASP through the use of the WRF-Chem model
+
+% SPECIFIC OBJECTIVES
+% -------------------
+% 1. Prepare and update the emission file for the year 2018, representative of the modeling domain areas.
+% 2. Evaluation of the WRF-Chem model results, based on the control-case study (September and October 2018)
+% 3. Obtain surface ozone concentrations from the WRF-Chem model based on the RCP scenarios and compared them with the control-case scenario.
+% 4. Study the current conditions that affect the tropospheric ozone formation through the WRF-Chem model compared with observations.
+% 5. Study how changes in future meteorological conditions impact the surface ozone formation in the MASP and around it.
+\epigraph{\textit{If not now, when? If not you, who?}}{Paraphrased from Hillel the Elder}
+% Summary
+It is a challenge to control tropospheric ozone adverse effects on human health and climate in a regional and global context.
+The use of chemical transport models (CTM) demonstrated to be a powerful tool to study the ozone and secondary pollutants formation.
+The WRF-Chem model is a CTM that allows us to understand the driving factors that led to the ozone formation in urban areas and how this pollutant concentration can change at different weather conditions when maintaining anthropogenic emission rates.
+
+In this study, we aim to examine the impact of future changes in meteorological conditions for short periods (two months) on the surface ozone formation, maintaining the same emission rates. 
+This study enhance our understanding of the impact of future meteorological conditions on ozone formation in urban and regional areas based on RCP as climate change scenarios used by the \citet{IPCC2013}.
+
+The emission approach considered anthropogenic (road transport, industry, and residential) and biogenic sources for September and October 2018 period (named in this study as `current' conditions). The RCP~4.5 and RCP~8.5 were considered as future scenarios during September and October 2030.
+Model evaluation results for ozone formation during base case scenario suggest that part of the emission approach is representative of the current conditions.
+NO$_x$ and VOC emissions are the main parameters that have to be represented for the ozone formation.
+However, NO$_x$ and CO did not present good agreement with observations, whereby CO emissions were under-predicted in the model simulations by comparison with observations.
+Despite these findings, surface ozone simulations for September 2018 comply at least with two of three statistical benchmarks for the stations inside the MASP, satisfying the model evaluation reasonably well. 
+Model performance evaluation for October 2018 were satisfactory compared with September, because complied with all benchmarks at the criteria level suggested by \citet{Emery2017}.
+However, this modeling period had some limitations due to low values of r compared with September 2018 in simulating periods for ozone formation during rainy conditions which can be related to the model configurations (i.e., microphysics and cumulus parameterizations).
+Other limitations are related to wind directions and errors due to the spatial distribution of emission sources.  
+
+Surface ozone concentrations based on RCP~4.5 and RCP~8.5 scenarios for future months (Sep-Oct 2030) presented differences compared with current conditions results, mainly in the peak ozone concentrations.
+Simulations, mainly for September 2030, suggest that surface ozone can change depending on the RCP scenario.
+Despite model limitations, this work brings us an insight into the future changes in weather conditions that could affect surface ozone concentrations. 
+Humankind can follow the worst-case scenario (the RCP~8.5) with negative impacts in urban areas by increasing ozone concentration.
+It is interesting to note that temperatures for September 2030 from the RCP~4.5 scenario are very close to that from September 2018 as monthly mean.
+An implication of this comparison is the possibility that the RCP scenarios as meteorology IC/BC could underestimate future weather conditions for the S\~{a}o Paulo state, which mean that even a worse scenario can occur.
+These future meteorological changes also reveal a decrease in monthly accumulated rain, worsening when the RCP increases the radiative forcing.
+In October, it was observed different rainy periods for each scenario that affected the ozone formation.
+
+In conclusion, this work, with the application of the WRF-Chem model, found negative impacts in air quality over MASP in September due to changes only in meteorological conditions under the RCP~8.5 scenario, maintaining the emission rates and land use in 2030 similar to 2018.
+The application of the meteorological IC/BC conditions from the RCP~4.5 scenario for September 2030 decreases the daily maximum rolling 8-hr mean surface ozone concentrations in the MASP compared with September 2018 (Table~\ref{tab:o3_sep_type}). 
+However, due to more model uncertainties in weather representation for October, the impact in surface ozone concentrations could not be better represented mainly due to different rainy periods.
+However, there are impacts for the RCP~4.5 in the ozone formation greater than the RCP~8.5 (Table~\ref{tab:o3_oct_type}). 
+It could also be a period for future research to analyze the impact of changes in rainy conditions.
+
+\begin{table}
+\centering
+\caption{MDA8 ozone monthly average in $\mu$g~m$^{-3}$ for September by station type}
+\label{tab:o3_sep_type}
+\begin{tabular}{lrrr}
+\toprule
+{} &  Sep. 2018 &  Sep. 2030 (RCP 4.5) &  Sep. 2030 (RCP 8.5) \\
+Type                &            &                      &                      \\
+\midrule
+Forest preservation &      92.67 &                84.77 &               106.13 \\
+Industry            &     100.45 &                94.33 &                98.55 \\
+Regional urban      &      97.04 &                90.66 &                99.90 \\
+Urban               &      90.47 &                81.82 &               105.48 \\
+Urban park          &      90.24 &                81.99 &               105.37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{MDA8 ozone monthly average in $\mu$g~m$^{-3}$ for October by station type}
+\label{tab:o3_oct_type}
+\begin{tabular}{lrrr}
+\toprule
+{} &  Oct. 2018 &  Oct. 2030 (RCP 4.5) &  Oct. 2030 (RCP 8.5) \\
+Type                &            &                      &                       \\
+\midrule
+Forest preservation &      79.69 &                89.70 &                 84.20 \\
+Industry            &      95.06 &               104.81 &                 98.64 \\
+Regional urban      &      91.53 &                98.15 &                 91.02 \\
+Urban               &      80.04 &                87.73 &                 80.26 \\
+Urban park          &      80.38 &                87.36 &                 80.98 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Study limitations and suggestions for future works}
+% 1. Climate conditions period
+% 2. Socioeconomic model, sources, policy decisions about mitigation control
+\subsection{Limitations}
+This study has limitations related to emission inventory, mainly associated to spatial and temporal distribution of emission sources.
+Despite using the fleet for 2018 (emissions factor), the temporal distribution for road transport emission may have contributed to inaccuracies because it represents the year 2014, described in \citet{Andrade2015}.
+
+
+The present study has only examined future changes in meteorological conditions for short-periods.
+Consequently, the static data used as the land cover does not represent the urban expansion for 2018 and the next decade (2030).
+
+\subsection{Suggestions for future works}
+Future work will concentrate on two tasks, as shown as follows:
+
+\begin{itemize}
+  \item The first task depends on high computational resources to simulate extended periods (i.e., 30 years) representing a climate change scenario. However, it is needed to consider the following:
+  \begin{itemize}
+  	\item Land cover and anthropogenic emission changes are relevant factors and are needed to represent future years based on environmental and economic policies.
+  	\item A critical issue to resolve for future studies is improving the cumulus parameterizations in the WRF-Chem model to get better results during rainy days.
+  	\item Despite significant values, low Pearson correlation results for primary pollutants (NO$_x$, CO, and toluene) suggest the following direction for future research to improve or evaluate other emission estimation approaches. The VEIN model \citep{Ibarra2018} could improve spatial emission distribution, increasing the model accuracy and precision.
+  \end{itemize}
+
+  \item The second task is to evaluate different socioeconomic climate change scenarios based on local policy decisions for the S\~{a}o Paulo state.   Some initiatives to reduce emission contributions from the road transport sector are:
+  \begin{itemize}
+    \item As is suggested in \citet{Andrade2017}, as practice in other megacities, could be to scrap old vehicles (those 10-15 years of age) in the S\~{a}o Paulo State.
+    \item Ethanol as a vehicle fuel type contributes to ozone formation, so another scenario is to reduce this emission source. One of the probably environmental policies could be improving public transportation, applying cleaner fuel as electric buses.
+  	\item Related to vehicle use intensity, less exhaust emission from vehicles should mean less traffic flow. Thus, an implication of this is to improve public transportation reducing congested traffic, mainly in central urban areas.
+\end{itemize}
+ 
+\end{itemize}
+
+% Future  work will concentrate on ...
+% Further studies, which take X into account, will need to be performed ...
+% This is an important for future research.
+% Future work should focus on enhancing the quality of X.
+% These findings suggest the following directions for future research ...
+% An important issue to resolve for future studies is ...

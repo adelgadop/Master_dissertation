@@ -1,0 +1,33 @@
+\begin{table}
+\begin{threeparttable}[b]
+\footnotesize
+\centering
+\caption{Global statistical results for air quality parameters}
+\label{tab: gl_st}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+{} & \multicolumn{5}{l}{Sep. 2018} & \multicolumn{5}{l}{Oct. 2018} \\
+Statistic\tnote{(a)} &       O$_3$ &        NO &    NO$_2$ &    NO$_x$ &       CO &     O$_3$ &        NO &    NO$_2$ &    NO$_x$ &        CO \\
+\midrule
+n    &  23995.00 &  21759.00 &  21759.00 &  21759.00 &  9870.00 &  25961.00 &  24033.00 &  24033.00 &  24033.00 &  12120.00 \\
+MB   &      9.30 &     -0.54 &      4.12 &      3.58 &    -0.26 &     13.19 &     -4.13 &      1.36 &     -2.77 &     -0.31 \\
+MAGE &     23.99 &     10.49 &     18.34 &     27.76 &     0.29 &     22.50 &      8.73 &     15.42 &     22.97 &      0.33 \\
+RMSE &     30.06 &     23.76 &     25.78 &     43.62 &     0.40 &     29.42 &     21.90 &     21.77 &     37.43 &      0.44 \\
+\bf{NMB}\tnote{(b)}  &      2.24 &     -6.39 &     15.69 &     10.33 &   -52.28 &      1.93 &    -48.06 &      5.79 &     -8.64 &    -61.77 \\
+\bf{NME}\tnote{(b)}  &     21.66 &    124.78 &     69.83 &     80.06 &    59.25 &     20.80 &    101.67 &     65.68 &     71.63 &     64.66 \\
+IOA  &      0.80 &      0.46 &      0.62 &      0.58 &     0.45 &      0.76 &      0.31 &      0.65 &      0.56 &      0.44 \\
+\bf{r }    &      0.67 &      0.25 &      0.39 &      0.34 &     0.19 &      0.64 &      0.16 &      0.42 &      0.34 &      0.17 \\
+Mm   &     57.67 &      7.87 &     30.39 &     38.26 &     0.24 &     54.78 &      4.46 &     24.84 &     29.30 &      0.19 \\
+Om   &     48.38 &      8.41 &     26.27 &     34.68 &     0.49 &     41.58 &      8.59 &     23.48 &     32.07 &      0.51 \\
+Msd  &     37.73 &     17.49 &     25.48 &     38.69 &     0.12 &     33.25 &      8.53 &     20.78 &     26.65 &      0.08 \\
+Osd  &     31.33 &     20.94 &     19.99 &     36.87 &     0.31 &     27.50 &     21.16 &     19.47 &     36.86 &      0.32 \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+{\scriptsize
+	\item[(a)] MB, MAGE, RMSE, Mm, Om, Msd, and Osd values are in $\mu$g~m$^{-3}$, except for CO values, which are in ppm units. Correlation coefficient is in dimensionless units.
+	\item[(b)] A cutoff value of 80 $\mu$g~m$^{-3}$ was applied to calculate NMB and NME only for 1-hr ozone, suggested by \citet{Emery2017}. Units are in percentage.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
