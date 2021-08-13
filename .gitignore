@@ -2,3 +2,4 @@
 *.ini
 *.bak
 .DS_Store
+air_data.pkl
