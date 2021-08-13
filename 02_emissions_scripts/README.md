@@ -126,7 +126,7 @@ Emissions showed in `emCET` represents only for São Paulo state. We are going t
 
 Total pollutant emissions (units in kt/year) from vehicles of São Paulo state (E$_{SP}$) compared with Model Domain. Based on these results, we can calculate representative total emissions (E$_{MD}$) of the modeling domain. To do this, we use a Top-Down approximation:
 
-E_SP (kt)  -> 28~223~364 
+E_SP (kt)  -> 28223364 
 
 E_d01 (kt)  -> xxxxx veh
 
