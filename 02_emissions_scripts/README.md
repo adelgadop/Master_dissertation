@@ -131,3 +131,10 @@ E_SP (kt)  -> 28223364
 E_d01 (kt)  -> xxxxx veh
 
 E_d02 (kt)  -> xxxxx veh
+
+# EDGAR_HTAP
+1. Read and understand fractions in voc_frac.py
+2. Generate files of 'industry' using the script htap2AE_year.py
+SOURCE = 'INDUSTRY'
+
+The final experiment for dissertation will consider industry + residential.
