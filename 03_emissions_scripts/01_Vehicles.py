@@ -298,3 +298,14 @@ emi = pd.DataFrame({'São Paulo State':E_SP,
 
 print(emi)
 
+#%% VOC fraction Figure
+voc_frac = pd.read_csv("01_data/voc_frac.csv")
+voc_frac.set_index('voc', inplace=True)
+
+fig, ax = plt.subplots(figsize=(6,2))
+voc_frac.plot(kind='bar',y='per', ax=ax, edgecolor='k',
+              ylabel='Percentage [%]', rot=90, legend=False)
+ax.set_xlabel('VOC species')
+fig.savefig("dissertation/fig/voc_frac.pdf", bbox_inches='tight', facecolor='w')
+
+
