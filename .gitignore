@@ -1,3 +1,4 @@
 .spyproject/*
 *.ini
 *.bak
+.DS_Store
