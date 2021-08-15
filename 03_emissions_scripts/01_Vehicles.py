@@ -224,7 +224,7 @@ total_vehicles = pd.DataFrame(
     )
 
 print(total_vehicles)
-total_vehicles.to_csv("04_output/emissions/Total_veh_domain.csv")
+total_vehicles.to_csv("04_output/emissions/tab/Total_veh_domain.csv")
 
 #%% Figures ------------------------------------------------------------------------
 
@@ -262,7 +262,7 @@ munDomain.plot(ax=ax2, color="purple", alpha = 0.5)
 munDomain.boundary.plot(ax=ax2)
 poly_gdf.boundary.plot(ax=ax2, color="red")
 ax2.set_title("Clipped", fontsize=20)
-plt.savefig('04_output/emissions/clip.png', bbox_inches='tight', facecolor='w' )
+plt.savefig('04_output/emissions/fig/clip.png', bbox_inches='tight', facecolor='w' )
 
 #%% Temporal distribution from Andrade et al. (2015)
 co = [0.019, 0.012, 0.008, 0.004, 0.003, 0.003, 0.006, 0.017, 0.047, 0.074, 0.072, 0.064,
