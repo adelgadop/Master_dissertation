@@ -144,10 +144,10 @@ Figure~\ref{fig:ws_cetesb} in Appendix shows wind speed values as a daily mean f
 \toprule
 {}        &    Urban &  U. park &  R. urban &    Ind. &  F. pre. & \\
 \midrule
-2-m Temp. ($^{\circ}$C)  (3 benchmarks)   &    $\checkmark$$\checkmark$ &  $\checkmark$$\checkmark$ &    $\checkmark$$\checkmark$ &  $\checkmark$$\checkmark$$\checkmark$ &    $\checkmark$$\checkmark$ & 11 \\
-2-m RH (3 benchmarks)  &     $\checkmark$$\checkmark$$\checkmark$ &   $\checkmark$$\checkmark$ &     $\checkmark$$\checkmark$$\checkmark$ &   $\checkmark$$\checkmark$$\checkmark$ &     $\checkmark$$\checkmark$$\checkmark$ & 14\\
-W. Speed (m s$^{-1}$) (3 benchmarks) &     $\checkmark$$\checkmark$ &   $\checkmark$ &     $\checkmark$$\checkmark$ &   $\checkmark$ &   & 6  \\
-W. Dir. ($^{\circ}$) (2 benchmarks)  &     $\checkmark$ &   $\checkmark$$\checkmark$ &      &   $\checkmark$ &     $\checkmark$ & 5\\
+2-m Temp. ($^{\circ}$C)  (3 benchmarks)   &    \ok \ok &  \ok \ok &    \ok \ok &  \ok \ok \ok &    \ok\ok & 11 \\
+2-m RH (3 benchmarks)  &     \ok \ok \ok &   \ok \ok &     \ok \ok \ok &   \ok \ok \ok &     \ok\ok\ok & 14\\
+W. Speed (m s$^{-1}$) (3 benchmarks) &     \ok \ok &   \ok &     \ok \ok &   \ok &   & 6  \\
+W. Dir. ($^{\circ}$) (2 benchmarks)  &     \ok &   \ok\ok &      &   \ok &     \ok & 5\\
 \bottomrule
  & 8 & 7 & 7 & 8 & 6\\
 \end{tabular}
@@ -167,20 +167,21 @@ W. Dir. ($^{\circ}$) (2 benchmarks)  &     $\checkmark$ &   $\checkmark$$\checkm
    	\item Cubat\~{a}o-V. Parisi
    \end{itemize}
    
-   Furthermore, model hourly simulations for September 14-15, 2018, were not considered in the statistical analysis due to cloud and rainfall conditions not represented appropriately by the WRF-Chem model.
+   Furthermore, model hourly simulations for September 14-15 (2018) were not considered in the statistical analysis due to cloud and rainfall conditions did not represented appropriately by the WRF-Chem model.
    Figure~\ref{fig:rain_sep18} in Appendix shows mean cloud cover and total rain by day.
-   Thus, 57 stations with hourly observations were compared with WRF-Chem model results, according to the station types (i.e., Forest Preservation, Urban, Urban Park, Regional Urban, and Industry).
+   Thus, 57 stations with hourly observations were compared with WRF-Chem model results. Also, hourly simulations were compared against to observations by station type (i.e., Forest Preservation, Urban, Urban Park, Regional Urban, and Industry).
    As highlighted in Figure~\ref{fig:mapStations}, the station types inside the MASP correspond to Forest Preservation, Urban, and Urban Park.
 
   Global statistical results in Table~\ref{tab: gl_st} show correlation coefficients (r) for ozone  above 0.50 that comply with the criteria level as statistical benchmark suggested by \citet{Emery2017}.
-  Average values of NMB and NME for ozone comply with the goal level ($\leq\pm$5 \% for NMB) and criteria level ($\leq$25 \% for NME).
-  Based on MB results, positive values are indicators that simulations are overestimating the observations.
+  Average values of NMB and NME for ozone comply with the goal ($\leq\pm$5 \% for NMB) and criteria ($\leq$25 \% for NME) benchmarks.
+  Based on MB results, positive values are indicators that simulations are overestimated the observations.
+  Otherwise, negative values indicate underestimations.
   
   Primary pollutants (NO$_x$ and CO) have low values of correlation coefficients.
-  On average, the model over-predicted NO$_2$ concentrations due to positive values for MB (+4.12 $\mu$g m$^{-3}$ for Sep. 2018) and NMB (15.69~\% for Sep. 2018).
-  However, simulations for September 2018 period under-predicted NO and CO concentrations which NMB values are -6.39~\% and -52.3~\%, respectively.
-  These underpredictions increase for October 2018 period with -48.06~\% and -61.77~\%, respectively.
-  Probably, NO and CO emissions could be underestimated, mainly for the October 2018 period.
+  On average, simulations overestimated the observations for NO$_2$ concentrations due to positive values for MB (+4.03 $\mu$g m$^{-3}$ for Sep. 2018) and NMB (15.36~\% for Sep. 2018).
+  However, simulations for September 2018 period underestimated NO and CO concentrations which NMB values are -7.22~\% and -52.3~\%, respectively.
+  These underestimations were higher for October 2018 period with -48.06~\% and -61.77~\%, respectively.
+  Probably, a possibly explanation are related to NO and CO emissions that could be underestimated, mainly for the October 2018 period.
   The spatial distribution of NO$_x$ emission is subjected to errors, considering that heavy-duty vehicles in the MASP use specific roads where trucks are concentrated on motorways around the city \citep{Ibarra2020}.
   
   \input{table/gl_sta}
@@ -188,29 +189,33 @@ W. Dir. ($^{\circ}$) (2 benchmarks)  &     $\checkmark$ &   $\checkmark$$\checkm
    \subsubsection{Surface ozone}
   Ozone model results were also evaluated for each station type, as shown in Table~\ref{tab: o3_sta}. 
   Three statistical values (NMB, NME, and r) for many station types complied with at least the criteria level of benchmarks suggested by \citet{Emery2017}.
-  NMB values for ozone are less than the range $\pm$15\% for those stations in the MASP.
-  Only Forest preservation (F. pre.) and Urban park (U. park) stations comply with some statistical goal level of benchmarks, such as NMB (values <~$\pm$5\%) for September 2018 period.
-  Only for stations classified as Industry (e.g., Santa Gertrudes), the correlation coefficient value for September 2018 complies with the goal level as a statistical benchmark (r >~0.75).
+  If we consider a cutoff value of 80 $\mu$g~m$^{-3}$, NMB values comply with the criteria benchmark. 
+  Some NMB values (<~$\pm$5\%)for station types presented a good performance because they comply with the goal benchmark, such as "Urban Park" (September and October), "Regional urban" (September and October), and "Forest Preservation" (only for October).
+
+  Only for stations classified as "Industry" (e.g., Santa Gertrudes), the correlation coefficient value for September 2018 complies with the goal level as a statistical benchmark (r >~0.75).
   Based on hypothesis t-test evaluation, there is a significant linear relationship between observed and simulated values because the correlation coefficient is significantly different from zero, as shown in Table~\ref{tab: r_sign} ($\alpha$ = 0.05 at confidence interval of 95~\%).
-  We can see that t-statistic values are greater than t critical values, which mean P-values are sufficiently small to reject the null hypothesis and accept the alternative hypothesis: "there is enough evidence to reject the null hypothesis (H$_o$)".
+  We can see that t-statistic values are greater than t critical values, which mean P-values are sufficiently small to reject the null hypothesis and accept the alternative hypothesis: "there is enough evidence to conclude that there is a significant linear relationship between observations and simulations".
   \input{table/o3_sta}
   \input{table/r_sign}
   
- Based on the score shown in \ref{tab:bench_o3}, both months presented a better performance of simulations for ozone. 
+ Based on the score shown in \ref{tab:bench_o3}, both months presented a better performance of simulations for ozone if a cutoff value is considered. 
 Stations belonging to the MASP comply with two of three statistical benchmarks, as shown in Table \ref{tab:bench_o3}.
- Despite of cloudy and rain conditions, simulations for October 2018 presented good performance as September 2018.
-  Likewise, the cold front system reached the MASP for six days during October 5-10, 2018, according to the \textit{Centro de Hidrografia da Marinha} \citep{CHM2020}.
-  As was mentioned at the beginning of this chapter, the WRF-Chem model, due to its configuration, could not simulate adequately heavy rainy days and consequently their influence in the ozone formation.
-  Furthermore, the model performance evaluation (Table \ref{tab:bench_o3}) revealed that surface ozone simulations presented better values for station types as `Forest preservation' (only for October), `Urban park', `Industry' (only for September), and `Regional urban'.
-  A possible explanation for the low performance attributed to Urban stations could be related to the model resolution, in which spatial emission rates distribution (3 km $\times$ 3 km) do not represent local emission for stations closer to main roads.
+Table \ref{tab:bench_o3} shows that surface ozone simulations presented better values for station types as `Forest preservation' (only for October), `Urban park', `Industry' (only for September), and `Regional urban' (both months).
+The station type "Forest preservation" presented less performance of the simulations for September.
+ Despite cloudy and rain conditions, simulations for October 2018 presented good performance for this station type.
+ However, the MB of ozone for October presented higher values than ozone simulations for September.
+ Similarly, it was observed with the correlation coefficient.
+ As was mentioned at the beginning of this chapter, the WRF-Chem model, due to its configuration, could not adequately simulate heavy rainy days and consequently their influence on the ozone formation.
+  In that sense, a possible explanation for this low performance based on MB and correlation coefficient values is attributed to rainy conditions in October. For instance, the cold front system reached the MASP for six days during October 5-10, 2018, according to the \textit{Centro de Hidrografia da Marinha} \citep{CHM2020}.
+  A possible explanation for the low performance attributed to "Urban" stations could be related to the model resolution, in which spatial emission rates distribution (3 km $\times$ 3 km) do not represent local emission for stations closer to main roads.
   
 \begin{table}[b]
 \centering
-\caption{Summary of compliance of the ozone statistical benchmarks by station types}
+\caption{Summary of compliance of the ozone statistical benchmarks by station types with a cutoff value for NMB and NME}
 \label{tab:bench_o3}
 \begin{tabular}{lrrrrrrr}
 \toprule
-Month & Statistic        &   F. pre.	 &  Urban     &  U. park &   Ind   &  R. urb. & \\
+Month 	  & Statistic    &  F. pres.	 &  Urban     &  U. park &   Ind   &  R. urb. & \\
 \midrule
 Sep. 2018 & NMB 		 &  \ok	     &  \ok       &  \ok \ok & \ok     & \ok \ok  & 7  \\
           & NME          &           &  \ok       &  \ok     & \ok     & \ok      & 4  \\
@@ -220,16 +225,16 @@ Sep. 2018 & NMB 		 &  \ok	     &  \ok       &  \ok \ok & \ok     & \ok \ok  & 7 
 Oct. 2018 & NMB 		 & \ok \ok   & \ok		  & \ok \ok  & \ok 	   & \ok \ok  & 8 \\
           & NME    		 & \ok		 & \ok		  & \ok		 & \ok	   & \ok      & 5 \\
           & r 			 & \ok		 & \ok        & \ok      & \ok     & \ok      & 5 \\
-          & \bf Total    & 4 		 & 3 		  & 4 		 & 3		   & 3        & \bf{17} \\
+          & \bf Total    & 4 		 & 3 		  & 4 		 & 3		   & 4        & \bf{18} \\
 \bottomrule
-\multicolumn{8}{l}{\scriptsize Note. \ok \ok = goal and criteria levels compliance suggested by \citet{Emery2017}.  }\\
+\multicolumn{8}{l}{\scriptsize Note. \ok \ok = goal and criteria levels compliance suggested by \citet{Emery2017}.}\\
 \end{tabular}
 \end{table}
 
   If we can see details, Figure~\ref{fig: o3_stats} shows statistical evaluations for each station.
  Correlation (\textit{r}) values comply with the criteria level in all stations, and few of them comply with the statistical goal level.
-  However, in some locations (8 stations), the model results do not comply with the criteria level for NMB.
-  The statistical evaluation also calculated the maximum model overprediction value (NMB equals to 41.40\% in September 2018), located in Sorocaba station, belonging to the "Regional urban" station type.
+  However, in some locations (eight stations), the model results do not comply with the criteria level for NMB.
+  The statistical evaluation also calculated the maximum model overestimation value (NMB equals to 41.40\% in September 2018), located in Sorocaba station, belonging to the "Regional urban" station type.
  The model simulations only in twelve stations on September 2018 underestimated ozone concentrations between -19.17\% (Araraquara, as an "Regional urban" station type) and -2.02\% (Piracicaba, as an "Regional urban" station type) as NMB values.
   
 \begin{figure}[!ht]
@@ -243,9 +248,9 @@ Oct. 2018 & NMB 		 & \ok \ok   & \ok		  & \ok \ok  & \ok 	   & \ok \ok  & 8 \\
   Finally, model simulations of ozone for many stations (25) on September 2018 complied with the criteria level for the NME statistical benchmark suggested by \citet{Emery2017}. Only three `Regional urban' stations complied with the goal level, which are Limeira, Guaratinguet\'{a}, and Taubat\'{e}.
   IOA results are also shown in Figure~\ref{fig: o3_stats} with very high values above 0.6.
   According to \citet{Willmott1984}, "the index of agreement varies between 0 and 1 where a value of 1 expresses perfect agreement between \textit{O} (observations) and \textit{P} (predictions) and 0 describes complete disagreement."
-  IOA values greater than 0.8 suggest that the model is highly accurate for those stations that comply with that criteria (e.g., Paulínia, Campinas Taquaral, Piracicaba, Americana, Jundiaí, Limeira, Carapicuíba, Santana, Pico do Jaraguá, Cid. Universitária USP IPEN, Ibirapuera, São Caetano do Sul, Diadema, Guarulhos-Paço Municipal, Parque D. Pedro II, Interlagos, and Itaquera).
+  IOA values greater than 0.8 suggest that the model is highly accurate for those stations that comply with that criteria (e.g., Paul\'{i}nia,  Campinas Taquaral, Piracicaba, Americana, Jundia\'{i}, Limeira, Carapicu\'{i}ba, Santana, Pico do Jaragu\'{a}, Cid. Universit\'{a}ria USP IPEN, Ibirapuera, S\~{a}o Caetano do Sul, Diadema, Guarulhos-Pa\c{c}o Municipal, Parque D. Pedro II, Interlagos, and Itaquera).
 
-Figure~\ref{fig:Sep18_type_o3} shows the comparison in time between observed (black dots) and modeled (green line) surface ozone values for September 2018 period.
+Figures~\ref{fig:Sep18_type_o3} and \ref{fig:Oct18_type_o3} show us the comparison in time between observed (black dots) and modeled (green line) surface ozone values for September and October 2018 period.
 September 14-15 were not considered due to the high inaccuracy of the WRF-Chem model to simulate cloud.   
 Ozone concentrations as daily maximum 8-h rolling mean (MDA8) were also calculated for observed and simulated values, shown in Figure~\ref{fig: MDA8_type_current}.
 The are many stations to plot model simulations compared with observations.
@@ -254,17 +259,28 @@ Both figures show peak values for model simulations and observations.
 This consideration is essential for model validation where model capabilities reproduce peak ozone concentrations \citep{Seinfeld2016}.
 Differences could be associated with weather conditions as cloudy days of September (4-5, 16-18, 26-30) of 2018, shown in Appendix (Figure~\ref{fig:rain_sep18}).
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
   \includegraphics[width=1\textwidth]{fig/Sep18_type_subplot_o3.pdf}
   \caption{Comparison between modeled and simulated values for surface ozone during September 2018 period considering all stations classified by type.}
   \label{fig:Sep18_type_o3}
 \end{figure}
 
-\begin{figure}[!hb]
+\begin{figure}[!ht]
+  \includegraphics[width=1\textwidth]{fig/Oct18_type_subplot_o3.pdf}
+  \caption{Comparison between modeled and simulated values for surface ozone during October 2018 period considering all stations classified by type.}
+  \label{fig:Oct18_type_o3}
+\end{figure}
+
+\begin{figure}[!ht]
   \begin{center}
-    \includegraphics[width=.7\textwidth]{fig/MDA8_type.pdf}
+  \begin{minipage}{.49\linewidth}
+    \includegraphics[width=\linewidth]{fig/mda8_type_sep18.pdf}
+  \end{minipage}
+  \begin{minipage}{.49\linewidth}
+    \includegraphics[width=\linewidth]{fig/mda8_type_oct18.pdf}
+  \end{minipage}
   \end{center}
-  \caption{Comparison between modeled and simulated values based on MDA8 surface ozone during September 2018 period for station types.}
+  \caption{Comparison between modeled and simulated values based on MDA8 surface ozone during (a) September and (b) October 2018 period for station types.}
   {\scriptsize Note. Daily maximum 8 h rolling mean (MDA8) of surface ozone concentrations.}
   \label{fig: MDA8_type_current}
 \end{figure}
@@ -293,10 +309,12 @@ They contribute with aldehydes \citep{Nogueira2014} that at high concentrations 
 
 Model simulations for Pinheiros station as an hourly mean concentration of the simulated period are compared with observations, shown in Figure~\ref{fig:Var_pinh_day}.
 These results extend our knowledge about the influence of hydrocarbons in photochemical activity.
-Toluene modeled values appear to be over-predicted in night-time hours and underpredicted during daylight hours.
+Toluene modeled values appear to be over-predicted in night-time hours and underestimated during daylight hours.
 This hourly variation during the daylight time is an indicator of remain hydrocarbons and their contributions to ozone formation.
-The statistic evaluation for toluene shows only no significant linear correlation for the S. André-Capuava station (Table~\ref{tab:stats_tol}).
-Pinheiros station and others (Paulínia, SJC, and SJC-VV) have significant linear correlations.
+The statistic evaluation for toluene shows only no significant linear correlation for the S. Andr\'{e} Capuava station (Table~\ref{tab:stats_tol}).
+Pinheiros station and others (Paul\'{i}nia, SJC, and SJC-VV) have significant linear correlations.
+
+\input{table/stats_tol.tex}
 
 \begin{figure}[ht]
   \centering
@@ -311,7 +329,7 @@ Another source of inaccuracy is related to vehicle fleet averaged by month, whic
 Further data collection, such as vehicle fleet by day and hour, would be needed to determine how temporal distribution and road transport emissions affect toluene and ozone simulations.
 Thus, the Vein model \citep{Ibarra2018} could improve this results based on high spatial and temporal resolution of the vehicle fleet from real-time GPS.
 
-\input{table/stats_tol.tex}
+
 
 \section{Future changes under RCP 4.5 and 8.5 scenarios} \label{sec:res_fut}
 % Third specific objective: Obtain surface ozone concentrations from the WRF-Chem model based on the RCP scenarios and compared them with the model results representative of the control-case study.
@@ -365,7 +383,8 @@ However, total monthly rain values reveal a decreasing for the RCP scenarios (Fi
 \end{figure}
 
 \subsection{Changes in surface ozone}\label{subsec:res_chan_o3}
-The changes of surface O$_3$ concentrations from the 2018 to 2030 were analyzed by month due to different weather conditions.
+The changes of surface O$_3$ concentrations from the 2018 to 2030 were analyzed by month due to different weather conditions. 
+Maximum daily 8-hr rolling mean (MDA8) for ozone values were calculated for each scenario and station. After that, mean differences of MDA8 between the future and the current scenario were obtained for each station and for all the second modeling domain area.
 
 \subsubsection{September}
 Figure~\ref{fig:o3_changes} shows the comparison among simulated surface ozone concentrations for the three scenarios: Current (Sep. 2018), RCP~4.5 (Sep. 2030), and RCP~8.5 (Sep. 2030).
@@ -391,23 +410,21 @@ There are many days with peak concentrations associated with the RCP~8.5 scenari
 \end{figure}
 
 On average, the most remarkable result to emerge from the model simulations is that the RCP 8.5 scenario presented higher peak concentrations in the MASP, represented by station types as Urban, Urban park, and Forest preservation.
-Outside the MASP (Regional urban, and Industry station types), the model simulations did not reveal surface ozone increases for future conditions based on the RCP 4.5 and 8.5 scenarios.   
-
-Further analyses carried out for the maximum daily 8-hr rolling mean (MDA8) for ozone concentrations confirmed the initial findings regarding MDA8 increases in urban areas inside the MASP.
-Figure~\ref{fig:MDA8_rcps} reveals many days with higher MDA8 ozone concentrations in the MASP, based on the RCP~8.5 scenario as meteorology IC/BC.
-However, there are few days with higher concentrations belonging to the current scenario (Sep. 2018) and to the RCP~4.5 at the beginning and the last days of September.
-
-Based on MDA8 ozone results, Figure~\ref{fig:spatial_o3_sep} shows spatial changes of surface ozone concentration as monthly mean difference between Sep. 2030 (RCP 4.5 and 8.5) and Sep. 2018.
 Simulations for the RCP~4.5 show decrease surface O$_3$ concentrations in the MASP, whereas the RCP~8.5 simulations presented increase, mainly in urban areas.
 This result confirms previous findings in the time series analysis in which the RCP~8.5 scenario presented many days with higher peak concentrations due to the increase in temperature.
 Regarding changes of surface ozone for the RCP~4.5, decreasing concentrations are also confirmed in previous findings by \citet{Schuch2020}, considering results for 2030 under two emission scenarios (i.e., Current Legislation, Mitigation, and Maximum Feasible Reduction), with anthropogenic emissions variation depending on the chosen scenario.
+
+Further analyses carried out for the MDA8 for ozone concentrations confirmed the initial findings regarding ozone increases in urban areas inside the MASP.
+Figure~\ref{fig:MDA8_rcps} reveals many days with higher MDA8 ozone concentrations in the MASP, based on the RCP~8.5 scenario as meteorology IC/BC.
+However, there are few days with higher concentrations belonging to the current scenario (Sep. 2018) and to the RCP~4.5 at the beginning and the last days of September.
+Based on MDA8 ozone results, Figure~\ref{fig:spatial_o3_sep} shows spatial changes of surface ozone concentration as monthly mean difference between Sep. 2030 (RCP 4.5 and 8.5) and Sep. 2018.
 
 \subsubsection{October}
 Model simulations for October are different with higher peak concentrations when compared with the September simulation results shown in the previous section.
 Figure~\ref{fig:o3_rcp_oct} shows a clear trend in the increasing of surface ozone concentrations for both RCP scenarios in 2030 compared with October 2018.
 Although the RCP~8.5 is the worst-case scenario, we found much higher simulated surface ozone values for the RCP~4.5 than for the RCP~8.5, markedly in days between Oct. 20 to 25.
-The most remarkable finding from the data analysis is that in urban stations, occurred a higher peak concentration with almost 320 $\mu$g~m$^{-3}$ corresponded to the RCP~4.5 scenario.
-Only some days for the RCP~8.5 presented higher concentrations than the other scenarios (i.e., current conditions and the RCP~4.5 for Oct. 2018).
+The most remarkable finding from the data analysis is that in "Urban" stations occurred a higher peak concentration with almost 320 $\mu$g~m$^{-3}$ corresponded to the RCP~4.5 scenario.
+Only some days for the RCP~8.5 presented higher concentrations than the other scenarios (current and the RCP~4.5).
 
 \begin{figure}[!hbt]
   \includegraphics[width=1\textwidth]{fig/rcp_2030_oct_subplot_o3}
@@ -418,7 +435,7 @@ Only some days for the RCP~8.5 presented higher concentrations than the other sc
 Model results of MDA8 ozone concentrations, shown in Figure~\ref{fig:MDA8_rcp_oct}, revealed some days with much higher concentrations for the RCP~8.5 and 4.5 scenarios.
 However, the RCP~8.5 scenario presented for some days (20-25 Oct.) low values of MDA8 ozone concentrations than the current and the RCP~4.5 scenarios.
 In the last days of October, MDA8 ozone concentrations for the RCP~8.5 present lower values than the October 2018 period.
-These last days present rainy conditions for the RCP~8.5 scenario. 
+These last days presented rainy conditions for the RCP~8.5 scenario. 
 
 \begin{figure}[!hbt]
   \begin{center}
@@ -429,28 +446,37 @@ These last days present rainy conditions for the RCP~8.5 scenario.
 \end{figure}
 
 These results thus need to be interpreted with caution.
-A possible explanation for this result is that cloudy days and low temperatures influenced differently each scenario.
+A possible explanation is that cloudy days and low temperatures influenced differently for each scenario.
 Changes in MDA8 surface ozone concentrations were identified in Figure~\ref{fig:spatial_o3_oct}. 
 From the chart, we can note that the RCP~4.5 presented more increases in the MDA8 ozone concentrations than the RCP~8.5.
 Some locations for the RCP~8.5 presented decreases in ozone concentrations, especially when they are far away from the urban center of the MASP.
-On average, we found that in the two RCP scenarios can be observed increase in the surface ozone concentration in the urban area of the MASP.
+
+On average, the two RCP scenarios showed increases in the MDA8 of ozone concentration in the urban area of the MASP, as we can see in Figure~\ref{fig:spatial_diff_o3}. Ozone simulations for September 2030 based on the RCP~4.5 scenario only showed decreases in many zones of the second modeling domain area. In contrast, it is very remarkable to observe the MDA8 increases on average for September 2030 based on the RCP~8.5 scenario. On the other hand, simulations for October only showed increases for both scenarios, especially in some areas at the north-west (RCP 4.5 and RCP 8.5) and south-east (RCP~8.5) of the MASP. On average, a decrease in ozone concentrations is observed in the ocean area under the RCP4.5 scenario. Also, MDA8 decreases are shown to the northeast and southwest of the MASP under the RCP 8.5 scenario.
 
 % List of Figures for this Chapter
 
 \begin{figure}[hbt]
 \begin{center}
-	\includegraphics[width=1\textwidth]{fig/MDA8_spatial_station}
+	\includegraphics[width=1\textwidth]{fig/mda8_spatial_station_sep}
 \end{center}
   \caption{MDA8 ozone mean spatial changes between Sep 2030 (RCP 4.5 and 8.5) and Sep. 2018}
   \label{fig:spatial_o3_sep}
 \end{figure}
 
 \begin{figure}[hbt]
-  \includegraphics[width=1\textwidth]{fig/MDA8_spatial_station_oct}
+  \includegraphics[width=1\textwidth]{fig/mda8_spatial_station_oct}
   \caption{MDA8 ozone mean spatial changes between Oct. 2030 (RCP 4.5 and 8.5) and Oct. 2018}
   \label{fig:spatial_o3_oct}
 \end{figure}
 
+
+\begin{figure}[hbt]
+\begin{center}
+	\includegraphics[width=1\textwidth]{fig/map_mda8_diff.pdf}
+\end{center}
+  \caption{Mean differences of surface maximum daily 8-h average (MDA8) by month between both scenarios (RCP 4.5 and 8.5 for 2030) and the current scenario (2018).}
+  \label{fig:spatial_diff_o3}
+\end{figure}
 
 
    

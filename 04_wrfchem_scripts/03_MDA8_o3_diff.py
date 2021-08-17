@@ -30,7 +30,7 @@ from cartopy.feature import ShapelyFeature
 
 #%% MDA8 diferences for September and October --------------------------------
 path = '../data/wrfout/'
-wrfout = [Dataset(i) for i in sorted(glob.glob(path+'*'))]
+wrfout = [Dataset(i) for i in sorted(glob.glob(path+'wrfout_d02*'))]
 
 t2 = wrf.getvar(wrfout, 'T2', timeidx=wrf.ALL_TIMES, method='cat')
 rh2 = wrf.getvar(wrfout, 'rh2', timeidx=wrf.ALL_TIMES, method='cat')
@@ -49,17 +49,30 @@ lon = t2.XLONG[0,:].values
 lat = t2.XLAT[:,0].values
 print(lon, lat)
 
-#%% Construction of xarray dataset from h5py file
+#%% Make a xarray data ----------------------------------------------------------
 
-data = {'sep':{'curr' : h5py.File(path + 'curr_201809.h5', 'r').get('o3_u')[3:,:,:],
-               'rcp45': h5py.File(path + 'rcp45_203009.h5', 'r').get('o3_u')[3:,:,:],
-               'rcp85': h5py.File(path + 'rcp85_203009.h5', 'r').get('o3_u')[3:,:,:]
+f1 = h5py.File(path + 'curr_201809.h5', 'r')
+f2 = h5py.File(path + 'rcp45_203009.h5', 'r')
+f3 = h5py.File(path + 'rcp85_203009.h5', 'r')
+f4 = h5py.File(path + 'curr_201810.h5', 'r')
+f5 = h5py.File(path + 'rcp45_203010.h5', 'r')
+f6 = h5py.File(path + 'rcp85_203010.h5', 'r')
+
+data = {
+        'sep': {
+            'curr' : f1.get('o3_u')[3:,:,:],
+            'rcp45': f2.get('o3_u')[3:,:,:],
+            'rcp85': f3.get('o3_u')[3:,:,:]
               },
-        'oct':{'curr' : h5py.File(path + 'curr_201810.h5', 'r').get('o3_u')[3:,:,:],
-               'rcp45': h5py.File(path + 'rcp45_203010.h5', 'r').get('o3_u')[3:,:,:],
-               'rcp85': h5py.File(path + 'rcp85_203010.h5', 'r').get('o3_u')[3:,:,:]}
+        'oct':{
+            'curr' : f4.get('o3_u')[3:,:,:],
+            'rcp45': f5.get('o3_u')[3:,:,:],
+            'rcp85': f6.get('o3_u')[3:,:,:]}
        }
 
+for f in [f1, f2, f3, f4, f5, f6]:
+    f.close()
+    
 print(data['sep']['curr'].shape)
 print(data['oct']['curr'].shape)
 print(lon.shape, lat.shape)
@@ -70,7 +83,7 @@ local_oct = pd.date_range("2018-10-01 00:00", periods = 741, freq = 'H') # , tz 
 times = {'sep': local_sep, 'oct': local_oct}
 print(times)
 
-#%% Make a Dataset for both months --------------------------------------------
+# Make a Dataset for both months 
 dset = {'sep':xr.Dataset(), 'oct':xr.Dataset()}
 for k in dset.keys():
     dset[k]['curr'] = (('time', 'lat', 'lon'), data[k]['curr'])
@@ -84,17 +97,17 @@ for k in dset.keys():
 
 dset['sep']['curr'][0,:,:].plot()
 
-#%% Make a MDA8 Dataset -------------------------------------------------------
-mda8 = {'sep': xr.Dataset(), 'oct': xr.Dataset()}
-for k in mda8.keys():
-    mda8[k]['curr']  = dset[k]['curr'].rolling(time = 8).mean().dropna("time")
-    mda8[k]['rcp45'] = dset[k]['rcp45'].rolling(time = 8).mean().dropna("time")
-    mda8[k]['rcp85'] = dset[k]['rcp85'].rolling(time = 8).mean().dropna("time")
+#%% Make a rolling mean of 8 hours of ozone as Dataset -------------------------------------------------------
+roll8 = {'sep': xr.Dataset(), 'oct': xr.Dataset()}
+for k in roll8.keys():
+    roll8[k]['curr']  = dset[k]['curr'].rolling(time = 8).mean().dropna("time")
+    roll8[k]['rcp45'] = dset[k]['rcp45'].rolling(time = 8).mean().dropna("time")
+    roll8[k]['rcp85'] = dset[k]['rcp85'].rolling(time = 8).mean().dropna("time")
     
 diff = {'sep': xr.Dataset(), 'oct': xr.Dataset()}
 for k in diff.keys():
     for scen in ['rcp45', 'rcp85']:
-        diff[k][scen] = (mda8[k][scen].groupby('time.dayofyear').max() - mda8[k]['curr'].groupby('time.dayofyear').max()).mean('dayofyear')
+        diff[k][scen] = (roll8[k][scen].groupby('time.dayofyear').max() - roll8[k]['curr'].groupby('time.dayofyear').max()).mean('dayofyear')
     
 fig, ax = plt.subplots(2,2, figsize = (16,10))
 diff['sep']['rcp45'].plot.contourf(cmap = 'RdBu_r', levels = 15, center = False, ax = ax[0,0])
@@ -102,7 +115,7 @@ diff['sep']['rcp85'].plot.contourf(cmap = 'RdBu_r', levels = 15, center = False,
 diff['oct']['rcp45'].plot.contourf(cmap = 'RdBu_r', levels = 15, center = False, ax = ax[1,0])
 diff['oct']['rcp85'].plot.contourf(cmap = 'RdBu_r', levels = 15, center = False, ax = ax[1,1])
 
-#%% Make a map of MDA8 
+#%% Make a map of MDA8 differences on average by month and scenario ------------------------------
 sept = xr.concat([diff['sep'].rcp45, diff['sep'].rcp85], 
                  pd.Index(['RCP 4.5 (2030) - 2018', 'RCP 8.5 (2030) - 2018'], name = 'scen'))             
 octo = xr.concat([diff['oct'].rcp45, diff['oct'].rcp85], 
@@ -112,11 +125,12 @@ projection = ccrs.PlateCarree()
 fname = "01_data/MunRM07.shp"
 
 #ax = plt.subplot(projection=ccrs.PlateCarree())
-p = diff_all.plot.contourf(x="lon", y="lat", col="scen", figsize = (10, 5.9),
+p = diff_all.plot.contourf(x="lon", y="lat", col="scen", figsize = (8, 8),
                            row="month", levels = 20,
                            subplot_kws=dict(projection= projection, facecolor="gray"),
                            transform=ccrs.PlateCarree(),
-                           cbar_kwargs = {'label': 'MDA8 ozone mean difference [$\mu$g m$^{-3}$]'}
+                           cbar_kwargs = dict(label= 'MDA8 ozone mean difference [$\mu$g m$^{-3}$]',
+                                          orientation =  'horizontal',  pad = 0.06, shrink = 1)
                       )
 for ax in p.axes.flat:
     ax.coastlines()

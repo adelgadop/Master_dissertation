@@ -100,12 +100,7 @@ For instance, the follow \verb|namelist_fc.emi| applies to the parent domain wit
 LAPAt pre-processor emissions model created WRF-Chem ready emissions files for two modeling domains, considering the following structure: \verb|wrfchemi_{00z, 12z}_{d01, d02}_veic|, using the follow code in the Linux terminal of the Master IAG server (svan2): \\
 		\verb|ncl wrfchemi_cbmz_fc.ncl|\\
 The total number of vehicle approach for each modeling domain area was based on the spatial data sets of Brazil (available in \href{https://github.com/ipeaGIT/geobr}{geobr} Python package) and information about vehicle types by each municipality downloaded from \href{https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-denatran/frota-de-veiculos-2018}{DENATRAN}.
-Two Jupyter Notebooks were used to calculate the total number of vehicles and fraction by type and fuel consumption, available in this \href{https://github.com/adelgadop/Master_Dissertation}{GitHub}:
-
-\begin{itemize}
-	\item "Fleet and Use Intensity September 2018.ipynb"
-	\item "Fleet and Use Intensity October 2018.ipynb"
-\end{itemize}
+A Python script `01\_Vehicles.py' was used to calculate the total number of vehicles and fraction by type and fuel consumption, available in this \href{https://github.com/adelgadop/Master_Dissertation}{GitHub}.
 
 The primary data files are \verb|grid15km_d01.txt| and \verb|grid03km_d02.txt|, which are the results from QGIS and Python processing, shown below (next page).
 These datasets represent the total road length as the sum for each grid cell based on the motorway, trunk, primary, secondary, and tertiary types.
@@ -168,7 +163,7 @@ Figure~\ref{fig:Data} shows monthly distribution of hourly data by station type,
 These stations represent different land use types and they were named in this study as "Industry", "Regional urban", "Urban park", "Urban", and "Forest preservation".
 Not all station types are inside the MASP (i.e., Regional urban and Industry). 
  Hourly time series of weather and air quality parameters were automatically downloaded using a Python scripts, named \verb|downloaded_CETESB.py| and \verb|qualar_py.py| (developed by \href{https://github.com/quishqa/qualR.py}{M. Gavidia}).
-The repository of these scripts used in this study are available in this \href{https://github.com/adelgadop/PythonObsData}{GitHub link}.
+The repository of these scripts used in this study are available in this \href{https://github.com/adelgadop/Master_dissertation/tree/main/02_Obs_scripts}{GitHub link}.
 
 	\begin{figure}[!ht]
 		\centering
@@ -332,7 +327,7 @@ September and October stand out as the months with the highest concentrations of
  \chapter{Statistical metrics}\label{ap04}
  For this study, the statistical evaluation was developed using a Python script called \verb|mod_stats|.
   This script was based on the original script \verb|model_stats| developed by M. Gavidia's \href{https://github.com/quishqa/WRF-Chem_SP/tree/master/wrf_sp_eval}{GitHub}.
-  Functions that are included in the script \verb|mod_stats| (available in this \href{https://github.com/adelgadop/PythonWRF}{GitHub}) are :
+  Functions that are included in the script \verb|mod_stats| (available in this \href{https://github.com/adelgadop/Master_dissertation/tree/main/04_wrfchem_scripts}{GitHub}) are :
   
   \begin{itemize}
   	\item \verb|aq_stats| evaluates air quality paired values
@@ -365,7 +360,7 @@ September and October stand out as the months with the highest concentrations of
   This appendix shows results for the primary pollutants (NO$_x$, CO, and toluene), and meteorological parameters.
   WRF-Chem model outputs were processed through Python scripts (\verb|wrf_extract.py|, \verb|wrf_rain.py|, \verb|mod_stats.py|, and Jupyter Notebooks for data analyses).
   These scripts extracted pollutants and meteorological parameters for each station location, and for statistical analysis.
-  Full codes are available on this \href{https://github.com/adelgadop/PythonWRF}{GitHub}.
+  Full codes are available on this \href{https://github.com/adelgadop/Master_dissertation/tree/main/04_wrfchem_scripts}{GitHub}.
   
   
   \input{table/stats_all_type.tex}

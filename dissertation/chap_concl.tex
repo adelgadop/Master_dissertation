@@ -21,12 +21,12 @@ In this study, we aim to examine the impact of future changes in meteorological 
 This study enhance our understanding of the impact of future meteorological conditions on ozone formation in urban and regional areas based on RCP as climate change scenarios used by the \citet{IPCC2013}.
 
 The emission approach considered anthropogenic (road transport, industry, and residential) and biogenic sources for September and October 2018 period (named in this study as `current' conditions). The RCP~4.5 and RCP~8.5 were considered as future scenarios during September and October 2030.
-Model evaluation results for ozone formation during base case scenario suggest that part of the emission approach is representative of the current conditions.
-NO$_x$ and VOC emissions are the main parameters that have to be represented for the ozone formation.
+Model evaluation results for ozone formation during the base case scenario suggest that part of the emission approach represents the current conditions.
+NO$_x$ and VOC emissions are the main parameters that have to be represented for ozone formation.
 However, NO$_x$ and CO did not present good agreement with observations, whereby CO emissions were under-predicted in the model simulations by comparison with observations.
-Despite these findings, surface ozone simulations for September 2018 comply at least with two of three statistical benchmarks for the stations inside the MASP, satisfying the model evaluation reasonably well. 
-Model performance evaluation for October 2018 were satisfactory compared with September, because complied with all benchmarks at the criteria level suggested by \citet{Emery2017}.
-However, this modeling period had some limitations due to low values of r compared with September 2018 in simulating periods for ozone formation during rainy conditions which can be related to the model configurations (i.e., microphysics and cumulus parameterizations).
+Despite these findings, surface ozone simulations for September 2018 comply with two of three statistical benchmarks for the stations inside the MASP, satisfying the model evaluation reasonably well. 
+Model performance evaluation for October 2018 was satisfactory compared with September because it complied with all benchmarks at the criteria level suggested by \citet{Emery2017}.
+However, this modeling period had some limitations due to low values of r compared with September 2018 in simulating periods for ozone formation during rainy conditions, which can be related to the model configurations (i.e., microphysics and cumulus parameterizations).
 Other limitations are related to wind directions and errors due to the spatial distribution of emission sources.  
 
 Surface ozone concentrations based on RCP~4.5 and RCP~8.5 scenarios for future months (Sep-Oct 2030) presented differences compared with current conditions results, mainly in the peak ozone concentrations.
@@ -38,47 +38,47 @@ An implication of this comparison is the possibility that the RCP scenarios as m
 These future meteorological changes also reveal a decrease in monthly accumulated rain, worsening when the RCP increases the radiative forcing.
 In October, it was observed different rainy periods for each scenario that affected the ozone formation.
 
-In conclusion, this work, with the application of the WRF-Chem model, found negative impacts in air quality over MASP in September due to changes only in meteorological conditions under the RCP~8.5 scenario, maintaining the emission rates and land use in 2030 similar to 2018.
-The application of the meteorological IC/BC conditions from the RCP~4.5 scenario for September 2030 decreases the daily maximum rolling 8-hr mean surface ozone concentrations in the MASP compared with September 2018 (Table~\ref{tab:o3_sep_type}). 
-However, due to more model uncertainties in weather representation for October, the impact in surface ozone concentrations could not be better represented mainly due to different rainy periods.
-However, there are impacts for the RCP~4.5 in the ozone formation greater than the RCP~8.5 (Table~\ref{tab:o3_oct_type}). 
-It could also be a period for future research to analyze the impact of changes in rainy conditions.
+In conclusion, this work, with the application of the WRF-Chem model, found negative impacts in the surface ozone formation over the MASP in September due to changes only in meteorological conditions under the RCP~8.5 scenario, maintaining the emission rates and land use in 2030 similar to 2018.
 
-\begin{table}
+The application of the meteorological IC/BC conditions from the RCP~4.5 scenario for September 2030 decreases the daily maximum rolling 8-hr mean surface ozone concentrations in the MASP compared with September 2018 (Table~\ref{tab:o3_type}).  The rise of temperature (+2.55 $\pm$0.14 $^{\circ}$C on average) for the RCP 8.5 scenario was the main driver of ozone formation. The MDA8 ozone as monthly mean in the station types showed reductions for the RCP~4.5 scenario and increases and one reduction ("Industry") for the RCP 8.5 scenario.
+
+However, due to more model uncertainties in weather representation for October attributed to the mean bias, the impact in surface ozone concentrations could not be better represented, mainly due to different rainy periods.
+However, there are impacts for the RCP~4.5 in the ozone formation greater than the RCP~8.5 (Table~\ref{tab:o3_type}). Simulations presented differences between years in rainy periods that affected ozone formation. Changes in temperature on monthly average for both scenarios (-0.4 $\pm $0.11 $^{\circ}$C for the RCP 4.5 and +0.48 $\pm$0.11 $^{\circ}$C for the RCP 8.5) are not remarkable compared with September.
+It could also be a period for future research to analyze the impact of ozone formation under changes in rainy conditions.
+
+\begin{table}[hb]
 \centering
-\caption{MDA8 ozone monthly average in $\mu$g~m$^{-3}$ for September by station type}
-\label{tab:o3_sep_type}
-\begin{tabular}{lrrr}
+\begin{threeparttable}[b]
+\caption{MDA8 ozone monthly average in $\mu$g~m$^{-3}$ by station type}
+\label{tab:o3_type}
+\begin{tabular}{lllrrr}
 \toprule
-{} &  Sep. 2018 &  Sep. 2030 (RCP 4.5) &  Sep. 2030 (RCP 8.5) \\
-Type                &            &                      &                      \\
+{}      & {} 			& {}	        				& 2018 		& 2030        			& 2030  \\
+Month   & Location		& Type       			&           	&  (RCP 4.5)     		& (RCP 8.5) \\
 \midrule
-Forest preservation &      92.67 &                84.77 &               106.13 \\
-Industry            &     100.45 &                94.33 &                98.55 \\
-Regional urban      &      97.04 &                90.66 &                99.90 \\
-Urban               &      90.47 &                81.82 &               105.48 \\
-Urban park          &      90.24 &                81.99 &               105.37 \\
+Sep. 	& Outside 		& Industry     			&    100.45 	&  94.33 (\bl{-6.1})	&  98.55 (~ -1.9) \\
+		& 				& Regional urban   		&     97.04 &  90.66 (\bl{-6.4}) 	&  99.90 ( \re{+2.9}) \\
+		& MASP 			& Forest preservation   &     92.67 &  84.77 (\bl{-7.9}) 	& 106.13 (\re{+13.5}) \\
+		& 				& Urban      			&     90.47 	&  81.82 (\bl{-8.7}) 	& 105.48 (\re{+15.0}) \\
+		& 				& Urban park 			&     90.24 	&  81.99 (\bl{-8.3}) 	& 105.37 (\re{+15.1}) \\
+		& \\
+Oct. 	& Outside 		& Industry       		&     95.06 & 104.81 ( \re{+9.8}) 	&  98.64 ( \re{+3.6}) \\
+		& 				& Regional urban   		&     91.53 &  98.15 ( \re{+6.6}) 	&  91.02 (~ -0.5) \\
+		& MASP 			& Forest preservation   &     79.69 &  89.70 (\re{+10.0}) 	&  84.20 ( \re{+4.5}) \\
+		& 				& Urban      			&     80.04 &  87.73 ( \re{+7.7}) 	&  80.26 ( +0.2) \\
+		& 				& Urban park 			&     80.38 &  87.36 ( \re{+7.3}) 	&  80.98 ( +1.0) \\
 \bottomrule
 \end{tabular}
+\begin{tablenotes}
+{\scriptsize
+	\item[(a)] MDA8 ozone variations are shown in parentheses.
+	\item[(b)] Increases marked in red are greater than +2.749 based on MB result for temperature (shown in Table~\ref{tab:stats_iag})  and the relationship on average of the increase between temperature and ozone for September (RCP 8.5 - current).}
+	% +2.537016 ºC   -->   +4.471 ug/m3
+	% +1.56     ºC   -->   x = +2.7491 ug/m3
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
-\begin{table}
-\centering
-\caption{MDA8 ozone monthly average in $\mu$g~m$^{-3}$ for October by station type}
-\label{tab:o3_oct_type}
-\begin{tabular}{lrrr}
-\toprule
-{} &  Oct. 2018 &  Oct. 2030 (RCP 4.5) &  Oct. 2030 (RCP 8.5) \\
-Type                &            &                      &                       \\
-\midrule
-Forest preservation &      79.69 &                89.70 &                 84.20 \\
-Industry            &      95.06 &               104.81 &                 98.64 \\
-Regional urban      &      91.53 &                98.15 &                 91.02 \\
-Urban               &      80.04 &                87.73 &                 80.26 \\
-Urban park          &      80.38 &                87.36 &                 80.98 \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \section{Study limitations and suggestions for future works}
 % 1. Climate conditions period
