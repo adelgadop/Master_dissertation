@@ -1,7 +1,7 @@
 \chapter{\bf Results and Discussion}\label{chap:resul}
 \epigraph{\textit{Assure me that I yet may change these shadows you have shown me.}}{Charles Dickens, \textit{A Christmas Carol}}
-   \noindent  This chapter presents the emission inventory results for September and October of 2018 and WRF-Chem model results for the second modeling domain ($\delta$X = 3 km) for all scenarios.
-   Two scenarios (RCP 4.5 and RCP~8.5 for 2030) are future predictions oddly reminiscent of Dickens.
+   \noindent  This chapter presents the emission inventory results for September and October of 2018 and WRF-Chem model results for the second modeling domain ($\delta$X = 3 km of spatial resolution) for all scenarios.
+   Two scenarios (RCP~4.5 and RCP~8.5 for 2030) are future predictions oddly reminiscent of Dickens.
       
    In Section~\ref{sec:res_curr}, this study evaluates the WRF-Chem model results for the current conditions (September and October 2018 period) based on the meteorological IC/BC, emission for anthropogenic (road transport, industry, and residential), and biogenic sources.
    
@@ -69,13 +69,13 @@ Tables~\ref{tab:stats_iag} and \ref{tab: r_sign_iag} show statistical model eval
 
 Temperature model results comply with MAGE and IOA statistical benchmarks suggested by \citet{Monk2019} for complex terrain.
 However, MB result is not less than 1 ºC.
-There is an overprediction of +1.56 ºC on average compared with observations.
+There is an overestimation of +1.56 ºC on average compared with observations.
 
 Relative humidity from model results comply with the three statistical benchmarks (MAGE and MB units are in \%, apply for the MASP).
 Thus, model results presented high accuracy to simulate this meteorological parameter.
 
 Wind speed model results comply with the RMSE statistical benchmark, but not for the others (MB and IOA).
-The model over-predicted in +1.69 m/s the average wind speed observations.
+The model overestimated in +1.69 m/s the average wind speed observations.
 Wind direction model results comply with statistical benchmarks for MAGE (value less than 55) and MB (value less than 10).
 Thus, the model has a good capability to simulate wind directions at IAG/USP station.
 Figure~\ref{fig:wrplot_iag} shows the two wind rose plots, one with the modeled values and the other for the observation values. The frequency of calm winds is greater in observations than in the model results.
@@ -112,14 +112,15 @@ Model results for temperature comply with two statistical benchmark (MAGE and IO
 The model over-predicted temperature results with +1.31 ºC based on modeled (Mm) and observed (Om) mean values, also shown as MB result in Table~\ref{tab:stats_all}.
 
 In general terms, the model has a good performance for relative humidity because simulations comply with all the benchmarks (MAGE < 20\%, MB < $\pm$ 10\%, and IOA $\geq$ 0.6).
-However, simulations under-predicted measurements as we can see in the negative MB value.
+However, simulations underestimated measurements as we can see in the negative MB value.
 
 Model simulations for wind speed comply with two (RMSE and MB) of three statistical benchmarks.
 The IOA value does not reach the statistical benchmark ($\geq$ 0.6).
 Regarding to wind direction, only one statistical value (MAGE) complies with the benchmark ($\leq$ 55).
 The MB (as absolute value) for wind direction is greater than the statistical benchmark ($\leq~$10).
 
-Considering correlation results, Table~\ref{tab: r_sign_met_all} shows t-test values and number of samplers (n) analyzed; which indicate a significant linear relationship between modeled and observed values due to t-statistic values are greater than t-critical values.
+Considering correlation results, Table~\ref{tab: r_sign_met_all} shows t-test values and the number of samplers (n) analyzed. 
+Values of t-statistic are greater than t-critical, which means there is a significant linear relationship between modeled and observed values.
 
 \input{table/r_sign_met_all.tex}
 
@@ -128,13 +129,13 @@ The WRF-Chem model has a good performance for the relative humidity simulations.
 Figure~\ref{fig:rh_cetesb} in Appendix shows time series as a daily mean for relative humidity, where model results and observations are compared by station type. 
 Temperature model results comply with two of three statistical benchmarks.
 Figure~\ref{fig:temp_cetesb} in Appendix shows temperature values as a daily mean for model results compared with observations by each station type.
-Only model results for "Industry station type" presented good performance.
+Only model results for "Industry" station type presented good performance.
 
 Finally, the wind was difficult to simulate and did not present good results compared with observed values.
-Statistical results suggest low capability of the model to simulate wind speed in urban and forest areas (i.e., Pico do Jaraguá station).
+Statistical results suggest low capability of the model to simulate wind speed in urban and forest areas (i.e., Pico do Jaragu\'{a} station).
 However, this is not particularly surprising given that CETESB stations aim to measure air quality parameters, and many stations could not comply with WMO recommendations to install weather station \citep{WMO2018}.
-Furthermore, there are errors in the model due to low resolution to represent the topography, such as hills in the higher terrain (i.e., Pico do Jaraguá). 
-Figure~\ref{fig:ws_cetesb} in Appendix shows wind speed values as a daily mean for model results and observations; modeling values belonging to "Forest preservation sites" highly overpredicted observed values more than other station types.
+Furthermore, there are errors in the model due to low resolution to represent the topography, such as hills in the higher terrain (i.e., Pico do Jaragu\'{a}). 
+Figure~\ref{fig:ws_cetesb} in Appendix shows wind speed values as a daily mean for model results and observations; modeling values belonging to "Forest preservation sites" highly overestimated observed values more than other station types.
 
 \begin{table}
 \centering
@@ -190,7 +191,7 @@ W. Dir. ($^{\circ}$) (2 benchmarks)  &     \ok &   \ok\ok &      &   \ok &     \
   Ozone model results were also evaluated for each station type, as shown in Table~\ref{tab: o3_sta}. 
   Three statistical values (NMB, NME, and r) for many station types complied with at least the criteria level of benchmarks suggested by \citet{Emery2017}.
   If we consider a cutoff value of 80 $\mu$g~m$^{-3}$, NMB values comply with the criteria benchmark. 
-  Some NMB values (<~$\pm$5\%)for station types presented a good performance because they comply with the goal benchmark, such as "Urban Park" (September and October), "Regional urban" (September and October), and "Forest Preservation" (only for October).
+  Some NMB values (<~$\pm$5\%) for station types presented a good performance because they comply with the goal benchmark, such as "Urban Park" (September and October), "Regional urban" (September and October), and "Forest Preservation" (only for October).
 
   Only for stations classified as "Industry" (e.g., Santa Gertrudes), the correlation coefficient value for September 2018 complies with the goal level as a statistical benchmark (r >~0.75).
   Based on hypothesis t-test evaluation, there is a significant linear relationship between observed and simulated values because the correlation coefficient is significantly different from zero, as shown in Table~\ref{tab: r_sign} ($\alpha$ = 0.05 at confidence interval of 95~\%).

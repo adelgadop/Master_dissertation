@@ -21,7 +21,7 @@ stations = pd.read_csv('01_data/stations_hc.csv')
 stations.index =stations.code
 print(stations)
 
-aq_data = pd.read_pickle('05_output/obs/data_all_photo.pkl')
+aq_data = pd.read_pickle('01_data/processed/obs/data_all_photo.pkl')
 parameters = ['o3', 'no', 'no2', 'co', 'ben', 'tol', 'pm10', 'pm2.5']
 for p in parameters:
     aq_data[p] = aq_data[p].astype(float)
@@ -84,3 +84,4 @@ ax2.set_ylabel('CO [ppm], Tol. and Ben. [$\mu$gm$^{-3}$]',loc='center')
 ax.legend(['O$_3$','NO','NO$_2$'], ncol=3, fontsize=8, loc=2)
 ax2.legend(['CO','Tol','Ben'], fontsize=8, loc=1, ncol=3)
 fig.savefig('dissertation/fig/byhour_all_polls.pdf', bbox_inches='tight', facecolor='w')
+

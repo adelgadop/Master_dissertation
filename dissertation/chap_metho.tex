@@ -1,10 +1,10 @@
 \chapter{\bf Methodology}\label{chap:metho}
-\epigraph{\textit{It is not enough to have a good mind, the main thing is to use it well.}}{René Descartes, \textit{Discourse on the Method}}
+\epigraph{\textit{It is not enough to have a good mind, the main thing is to use it well.}}{Ren\'{e} Descartes, \textit{Discourse on the Method}}
 
 \noindent This chapter describes the relevant information to run the WRF-Chem model and to evaluate the simulation results through recommended statistical benchmarks applied for photochemical models. 
-Here, the model configuration, the meteorological initial and boundary conditions (IC/BC), and the emission approaches are presented.
-It is also described how the anthropogenic and biogenic emissions files were built, considering assumptions and their limitations for future projections.
-Measured air data inside the model domain area and its geographical information is described.
+The model configuration, the meteorological initial and boundary conditions (IC/BC), and the emission approaches are also presented.
+The description of how the anthropogenic and biogenic emissions files were built is included, considering assumptions and their limitations for future projections.
+Additionally, measured air data inside the model domain area and its geographical information is described.
 Finally, this section describes statistical benchmarks used for the model performance evaluation for September to October 2018.
 Statistical results show us the model performance for current conditions and give us an insight about the model precision to simulate the ozone formation.
 
@@ -12,9 +12,9 @@ Impacts of climate change over surface ozone formation preferentially require an
 However, a coupled atmosphere-chemistry model demands high computing time to do this task.
 Due to this computational limitation, five years of data (2014-2018) was analyzed to review historical ozone measurements in the S\~{a}o Paulo state. 
 After that, as an alternative way, we chose only two months when high surface ozone episodes frequently occurred as a worst-case scenario.
-September and October represent these two months in the spring season when higher ozone concentration are measured due to low cloud cover and high frequency of sunny days, also consistent with findings of \citet{Carvalho2015}.
+September and October represent these two months in the spring season when higher ozone concentrations are measured due to low cloud cover and high frequency of sunny days, also consistent with findings of \citet{Carvalho2015}.
 
-The year 2018 was chosen as a period that represents current conditions.
+2018 was chosen as a period that represents current conditions.
 Based on the air quality report published by \citet{CETESB2019}, that year presented a high percentage of good air quality conditions than previous years (2014-2017) due to few days of meteorology conditions that enhanced ozone formation.
 Only September and December 2018 had a high number of frequent violations of S\~{a}o Paulo air quality standard for ozone (140~$\mu$g~m$^{-3}$, 8-h rolling mean).
 June, August, and October did not have exceedances of the air quality standards for ozone.
@@ -24,13 +24,13 @@ Two scenarios were analyzed using the meteorological datasets as meteorological 
 Only the current simulation for short periods of the year 2018 (Sep. and Oct.) was evaluated through statistic parameters for meteorology and surface ozone concentrations based on recommended statistical benchmarks for photochemical models.
 To isolate the effects of changes in future weather conditions, these three sets of simulations (current and future) share the same anthropogenic emission files and geographical data (i.e., land use/land cover, topography height). This means that any variation on future simulations is caused by the weather conditions' effects, affecting the biogenic emissions inside the WRF-Chen due to they depend on the temperature \citep{Guenther2006}.
 
-However, the same chemical boundary conditions, adding the same anthropogenic emissions and geographical data, could rise to some uncertainty in the model results for future scenarios.
+However, the same chemical boundary conditions, adding the same anthropogenic emissions, and geographical data may cause uncertainty in the model results for future scenarios.
 Likewise, according to \citet{VanVuuren2011a}, land use influences the climate system due to interactions with the local atmosphere (i.e., albedo and surface roughness) and biogenic emissions.
 For that reason, only the year 2030 was analyzed instead of include the year 2050 or even more future years, considering land use and anthropogenic emission could change in the future, and the uncertainty may increase significantly for 2050.  
 
 \section{Model description and experiment design}
 The Weather Research and Forecasting with chemistry model (WRF-Chem) \citep{Grell2005} is an open-source community model, developed by many different groups.
-Several research institutes collaborated for the developing of the meteorology model Weather Research and Forecasting (WRF) in 1990 through a partnership of the National Center for Atmospheric Research (NCAR), the National Oceanic and Atmospheric Administration (NOAA) -represented by NCEP and ESRL-, the United States Air Force, the Naval Research Laboratory, the University of Oklahoma, and the Federal Aviation Administration \citep{Skamarock2019}.
+Several research institutes collaborated for the development of the meteorology model Weather Research and Forecasting (WRF) in 1990 through a partnership of the National Center for Atmospheric Research (NCAR), the National Oceanic and Atmospheric Administration (NOAA) -represented by NCEP and ESRL-, the United States Air Force, the Naval Research Laboratory, the University of Oklahoma, and the Federal Aviation Administration \citep{Skamarock2019}.
 The WRF model is an Eulerian non-hydrostatic designed for use in atmospheric research and operational forecasting.
 Many options of physical parameterizations let us represent subgrid processes that the model cannot explicitly calculate.
 Details about WRF meteorological module can be found in \citet{Skamarock2019}.
@@ -68,7 +68,7 @@ The physic parameterizations of the model are summarized as follow \cite{Skamaro
 	\item \textit{Atmospheric radiation physics}: Longwave and shortwave schemes with multiple spectral bands and a simple shortwave scheme suitable for climate and weather applications. Cloud effects and surface fluxes are included.
 \end{itemize}
 
-The atmosphere's physical and chemical processes have interactions that affect meteorological conditions (e.g., clouds and precipitation) and air pollutants concentrations (i.e., ozone, nitrogen oxides, carbon monoxide, aerosols).
+The physical and chemical atmosphere processes have interactions that affect meteorological conditions (e.g., clouds and precipitation) and air pollutants concentrations (i.e., ozone, nitrogen oxides, carbon monoxide, aerosols).
 For instance, the chemistry can also affect the meteorological conditions through its effect on the radiation budget and aerosols' interaction with cloud condensation nuclei \citep{Grell2005}.
 
 The WRF-Chem model considers those interactions; for that reason is an "online" model. 
@@ -89,7 +89,7 @@ A control period (September and October 2018) was denoted as "current" and two s
 Model configurations with two nested domains were used where the MASP is at the center of the domains (Figure~\ref{fig:domain_area}), a 15-km resolution parent, and a 3-km resolution in a one-way concurrent run domain.
 This design was chosen because the spatial resolution of meteorology lateral boundary conditions (LBC) for future conditions has one degree, and it is necessary to reduce  errors from the dynamical downscaling procedure.
 According to \citet{Warner2011}, there is evidence of errors in regional downscaling modeling due to meteorological LBC.
-Thus, the second domain is located far away the boundary of the parent modeling domain boarders.
+Thus, the second domain is located far away from the boundary of the parent modeling domain borders.
 
 As mentioned by \citet{Vara2013}, model configurations for 3-km resolution represented better the ozone formation than 1-km resolution.
 Therefore, only the 3-km resolution domain was analyzed in this study.
@@ -99,9 +99,9 @@ This mechanism was used to simulate tropospheric ozone formation according to fi
 This chemical mechanism was chosen due to the use of ethanol as fuel consumption in the MASP.
 
 For running the WRF-Chem model, we started with two days of first spin-up with five days of data analyzed.
-We continued the simulation with one day of spin-up, reinitializing meteorology with previous calculated chemistry.
-This means that IC are updated each five days of simulation, preserving the previous calculated chemical species concentrations (i.e., chemical IC is not used).
-This kind of run help us to reduce meteorological IC error in our long time simulations.
+We continued the simulation with one day of spin-up, reinitializing meteorology with previously calculated chemistry.
+This means that IC is updated every five days of simulation, preserving the previous calculated chemical species concentrations (i.e., chemical IC is not used).
+This kind of run helps us to reduce meteorological IC error in our long time simulations.
 
 For instance, as shown in Figure \ref{fig:run}, two days (August 30-31) of spin-up were considered in the WRF-Chem model as a suggestion by \citet{Warner2011}.
 The term "spin-up" means generating a model solution of features not entered by the initial conditions such as inertia-gravity waves to reach approximate hydrostatic and geostrophic balance \citep{Warner2011}.
@@ -134,16 +134,16 @@ This last consideration of the temporal modeling setup was based on suggestions 
   		\label{fig:flow}
 	\end{figure}
 	
-The "namelist.wps" controls the WRF Preprocessor System (WPS) configuration while the "namelist.input" controls WRF configuration (Figure \ref{fig:flow}).
+The "{\it namelist.wps}" controls the WRF Preprocessor System (WPS) configuration while the "{\it namelist.input}" controls WRF configuration (Figure \ref{fig:flow}).
 Both namelists are shown in Appendix \ref{ap03}.
 The WPS module prepares geography and meteorology data based on the modeling domain area.
 Geography data has limitations because it can not represent current features for years 2018 and 2030.
 However, the WPS used the high resolution available (30s) from MODIS and USGS data, downloaded from the \href{https://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html}{WRF webpage}.
 In the WRF module, the namelist.input requires chemical options that are located in \&chem section, like the chemical mechanism, the biogenic emission scheme, or the chemical LBC. 
 Different from a meteorological run, WRF-Chem requires emission files in NetCDF format, called `wrfchemi'.
-The real.exe builds initial (wrfinput\_<domain>) and lateral-boundary conditions (wrfbdy\_d01).
+The real.exe builds initial ({\it wrfinput\_<domain>}) and lateral-boundary conditions ({\it wrfbdy\_d01}).
 Finally, wrf.exe uses IC/BC and the emission files to simulate hourly meteorological variables and pollutant concentrations in the defined spatial resolution.
- After running the first seven days (Figure~\ref{fig:run}), re-initialization uses wrf\_chem\_input\_d01 and wrf\_chem\_input\_d02 linked to the first hour of the previous day, using Linux codes, for instance:
+ After running the first seven days (Figure~\ref{fig:run}), re-initialization uses {\it wrf\_chem\_input\_d01} and {\it wrf\_chem\_input\_d02} linked to the first hour of the previous day, using Linux codes, for instance:
   \\ \verb|ln -sf ../wrfout_reinit/wrfout_d01_2018-09-05_00:00:00 wrf_chem_input_d01|\\
   \verb|ln -sf ../wrfout_reinit/wrfout_d02_2018-09-05_00:00:00 wrf_chem_input_d02|\\
  Also, it is necessary edit options in the namelist.input:
@@ -163,12 +163,12 @@ Finally, wrf.exe uses IC/BC and the emission files to simulate hourly meteorolog
 		For the `future' scenario (Sep-Oct 2030), the model was initialized from the NCAR's Community Earth System Model (CESM1) outputs with 1 $\times$ 1 degree resolution every six hours (available online at \href{https://rda.ucar.edu/datasets/ds316.1/}{ds316.1}).
 		CESM1 participated in phase 5 of the Coupled Model Intercomparison Experiment (CMIP5) \citep{Monaghan2014}, which supported the Intergovernmental Panel on Climate Change (IPCC) Fifth Assessment Report (AR-5).
 		Two datasets for future scenarios based on RCP~4.5 and RCP~8.5 were used.
-		These contain all the variables needed for the meteorological IC/BC for simulations with WRF-Chem, provided in the Intermediate File Format specific to WRF. This means that running ungrib in WPS is not required.
+		These contain all the variables needed for the meteorological IC/BC for simulations with WRF-Chem, provided in the Intermediate File Format specific to WRF. This means that running "{\it ungrib}"\footnote{Extract meteorological fields from {\it GRIB} files.} in WPS is not required.
 		The variables have been bias-corrected using the European Centre for Medium-Range Weather Forecast (ECMWF) Interim Reanalysis (ERA-Interim).
 		The datasets have 26 pressure levels and the meteorological variables are air temperature, boundary-layer winds, geopotential height, humidity, sea ice concentration, sea level pressure, sea surface temperature, skin temperature, snow water equivalent, soil moisture/water content, soil temperature, surface pressure, surface winds, upper-air temperature, upper-level winds.
 		
 		\subsubsection{Chemical IC/BC}
-		According to \citet{Gavidia2018}, dynamic chemical BC affect more ozone simulation with WRF-Chem in the autumn season (May) than in the spring season when photochemical activity is a higher. 
+		According to \citet{Gavidia2018}, dynamic chemical BC affects more ozone simulation with WRF-Chem in the autumn season (May) than in the spring season when photochemical activity is a higher. 
 		The same authors show in their results that the impact of dynamic chemical conditions could be neglected when the photochemical activity is higher (e.g., spring season).
 		The study concludes that the dynamic chemical BC does not significantly impact near-surface ozone concentration due to ozone formation much depending on the vehicular emission.
 		For that reason, this study considered chemical BC based on the default configuration.
@@ -185,7 +185,7 @@ Finally, wrf.exe uses IC/BC and the emission files to simulate hourly meteorolog
 	
 	For the industry and residential sectors, \verb|anthro_emiss| tool \citep{Kumar2020} was used to assimilate EDGAR-HTAP emissions to our two modeling domains.
 	Biogenic emissions were calculated online using the Model of Emissions of Gases and Aerosols from Nature (MEGAN), through \verb|bio_emiss| tool.
-	Both tools (\verb|anthro_emiss| and \verb|bio_emiss|) are available in the \href{https://www.acom.ucar.edu/wrf-chem/download.shtml}{NCAR UCAR web page}.
+	Both tools (\verb|anthro_emiss| and \verb|bio_emiss|) are available on the \href{https://www.acom.ucar.edu/wrf-chem/download.shtml}{NCAR UCAR web page}.
 	Appendix~\ref{ap02} presents details about the data source used to generate emission files required by the WRF-Chem model.
 	
 		\subsection{Road transport emissions}
@@ -215,8 +215,8 @@ Finally, wrf.exe uses IC/BC and the emission files to simulate hourly meteorolog
 	The utility $anthro\_emiss$, Fortran based preprocessor, creates WRF-Chem anthropogenic emission files from global inventories on a local coordinates.
 	This utility provides industry and residential emissions files, respectively:
 	\begin{itemize}
-	    \item wrfchemi\_\{00z,12z\}\_$<$domain$>$\_ind
-	    \item wrfchemi\_\{00z,12z\}\_$<$domain$>$\_res.
+	    \item {\it wrfchemi\_\{00z,12z\}\_$<$domain$>$\_ind
+	    \item wrfchemi\_\{00z,12z\}\_$<$domain$>$\_res.}
 	\end{itemize}
 	EDGAR-HTAP doesn't have ground transport emissions with highly temporal and spatial resolution.
 	Instead, LAPAt preprocessor emission model outputs were used. 	
@@ -337,11 +337,11 @@ The classification used in this work is different from CETESB classification bas
   
 Other recommendations are to use charts, plots, and statistical metrics for evaluating model results, letting us understand the model performance and its behavior, as suggested by \citet{Emery2017}.
   There are recommendations about statistics and benchmarks to assess photochemical model performance.
-  \citet{Emery2017} analyzed statistical benchmarks applied to North America.
+  \citet{Emery2017} analyzed statistical benchmarks applied to North American.
   For ozone, they recommended calculating statistics over temporal scales of one week (an episode), not longer than one month, and compared with recommended goals\footnote{"The more restrictive goals around the 33rd percentiles indicate statistical values that about one-third of top performing past applications in many U.S. modeling studies have met, and should be viewed as the best a model can be expected to achieve" \citep[defined in][]{Emery2017}.} and criteria\footnote{"The less restrictive criteria around the 67th percentile indicate statistical values that about two-thirds of past applications have met, and should viewed as establishing historical context that a majority of models have achieved" \citep[defined in][]{Emery2017}.} benchmarks shown in Table~\ref{tab:ozone_bench}.
-  Although these statistical benchmarks were based on  North America modeling studies, \citet{Emery2017} recommendations are relevant to any such applications of state-of-science photochemical models.
+  Although these statistical benchmarks were based on  North American modeling studies, \citet{Emery2017} recommendations are relevant to any such applications of state-of-science photochemical models.
   Therefore, they can be used for Brazil.
-  In case one or two doesn't comply with the recommended criteria for Normalized Mean Bias (NMB), Normalized Mean Error (NME), or Pearson correlation coefficient (\textit{r}), the modeling application should not be considered "failure" \citep{Emery2017}.
+  In case one or two did not comply with the recommended criteria for Normalized Mean Bias (NMB), Normalized Mean Error (NME), or Pearson correlation coefficient (\textit{r}), the modeling application should not be considered "failure" \citep{Emery2017}.
   The same authors recommend to restrict periods when observations exceed a minimum threshold value ("cutoff"), particularly for ozone. As conclusion in the paper published by \citet{Emery2017}, they recommend:
   
   \begin{quote}
@@ -367,9 +367,9 @@ Other recommendations are to use charts, plots, and statistical metrics for eval
   Other pollutants as nitrogen oxides (NO, NO$_2$), CO, and toluene were also analyzed in time and space.
   We analyzed toluene only for some stations where it was measured during September and October 2018 period. 
   It is important to remark that the WRF-Chem model did not include benzene in the results.
-  Therefore, it is excluded for the statistical analysis and the comparison with observations.
+  Therefore, it is excluded from the statistical analysis and the comparison with observations.
  
-  Regarding meteorological evaluation, São Paulo state can be considered as a complex terrain due to areas with high altitudes (e.g., Pico do Jaraguá) and high buildings in the MASP.
+  Regarding meteorological evaluation, S\~{a}o Paulo state can be considered as a complex terrain due to areas with high altitudes (e.g., Pico do Jaragu\'{a}) and high buildings in the MASP.
   For this reason, meteorology model results were evaluated using specific statistical benchmarks suggested by \citet{Monk2019} for complex terrain (Table~\ref{tab:met_bench}).
   
   \begin{table}
@@ -426,9 +426,10 @@ More details, such as utilities, can be found in Appendix~\ref{ap04}. Statistic 
   \end{align} 
     
   \subsection{Hypothesis test for Pearson's r}
- Correlation coefficient (\textit{r}) gives us an information about how two datasets have a linear relationship or not.
+ The correlation coefficient (\textit{r}) gives us information about how two datasets have a linear relationship or not.
   A positive perfect correlation (+1) corresponds to all the pairs lying on a straight line with a positive slope when a scatter diagram is used.
-  It is desired to achieve in air quality modeling (a perfect model!). However, a few paired values could generate errors for the correlation coefficient, which could not be robust or significant.
+  It is desired to achieve in air quality modeling (a perfect model!). 
+  However, a few paired values could generate errors for the correlation coefficient, which could not be robust or significant.
   Significance and confidence interval can be calculated for correlation coefficient based on t-test (two-tailed).
   %, available in the Python function \verb|r_pearson_sign| as part of \verb|mod_stats.py| script.
    Based on \citet{Navidi2019} t-test statistical evaluation methodology, we defined Null (H$_o$) and Alternative hypothesis (H$_A$), considering an alpha ($\alpha$) equals to 0.05 for degree freedom (df) equals to n-2, where n is the number of paired values:
@@ -437,7 +438,7 @@ More details, such as utilities, can be found in Appendix~\ref{ap04}. Statistic 
   	\item H$_A$: $\rho$ $\neq$ 0
   \end{itemize}
   Where $\rho$ denotes the population correlation between x and y.
-  Then, assuming that H$_o$ is true, a statistic test is computed and used to asses the strength of the evidence against H$_o$.
+  Then, assuming that H$_o$ is true, a statistical test is computed and used to asses the strength of the evidence against H$_o$.
   Also, we compute the P-value of the test that is the probability and is also called the \textbf{observed significance level}.
   The P-value measures the plausibility of H$_o$.
   So, if the P-value is sufficiently small, we may be willing to abandon the assumption that H$_o$ is true and believe H$_A$ instead (rejecting the null hypothesis).
