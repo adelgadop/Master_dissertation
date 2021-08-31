@@ -42,7 +42,7 @@ sts = stations[stations.type.isin(types)].sort_values('type')[['name','lat','lon
 print(sts.to_latex(index=False)) 
 
 #%% Import only September and October 2018 - Measured data
-obs18 = pd.read_pickle('05_output/obs/obs18.pkl').set_index('local_date')
+obs18 = pd.read_pickle('01_data/processed/obs/obs18.pkl').set_index('local_date')
 
 #%% Temperature and particles from observations
 

@@ -69,7 +69,8 @@ def met_process(para, data, file):
 para = {'ws_kph':'ws',   'wd_card':'wd','temp_c':'tc',   'rh':'rh',
         'pres_mb':'pres','rain_mm':'rr','sunshine':'sun','cloud':'cc'}
 
-files = ['01_data/iag_met/iag_sep18.xlsx', '01_data/iag_met/iag_oct18.xlsx']
+files = ['01_data/raw/obs/iag_met/iag_sep18.xlsx', 
+         '01_data/raw/obs/iag_met/iag_oct18.xlsx']
 
 # September 2018
 date = pd.date_range('2018-09-01 00:00', '2018-09-30 23:00', 
@@ -150,7 +151,7 @@ def highlight(indices,ax):
         i+=1
 highlight([13,14], plot_rr)
 
-fig.savefig('../4_Draft_Report/Dissertation/fig/rain_cc.pdf', bbox_inches='tight')
+fig.savefig('dissertation/fig/rain_cc.pdf', bbox_inches='tight')
 
 #%% Export data as pickle
 

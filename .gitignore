@@ -2,6 +2,8 @@
 *.ini
 *.bak
 .DS_Store
-air_data.pkl
+air_data_5years.pkl
 all_data.pkl
 obs18.pkl
+curr_data.pkl
+mod_all_scen.pkl

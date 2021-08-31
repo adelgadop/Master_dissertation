@@ -39,28 +39,30 @@ types = ['Urban','Urban park','Forest preservation','Regional urban','Industry']
 sts = stations[stations.type.isin(types)].sort_values('type')[['name','lat','lon','type','abb']].iloc[0:,:]
 print(sts.to_latex(index=False)) 
 
-data = pd.read_pickle('05_output/obs/air_data.pkl').set_index('local_date').drop('date', axis = 1)
+data = pd.read_pickle('01_data/processed/obs/air_data_5years.pkl').set_index('local_date').drop('date', axis = 1)
 data['type'] = [stations[stations.code == i].type.values[0] for i in data.code]
 data['month'] = data.index.month
 data['year'] = data.index.year
-data = data[data.year <2019]
+data = data[data.year < 2019]
 
 stat_sp = ['Paulínia', 'Interlagos', 
              'Carapicuíba', 'Campinas-Taquaral',
              'Pico do Jaraguá', 'Sorocaba',
              'Parque D.Pedro II', 'Ibirapuera',
              'Itaquera', 'Pinheiros']
+
 data = data[data.station.isin(stat_sp)]
 print(data.station.unique())
 
 print(data[data.wd > 360].wd.unique())
-data.loc[data.wd>360,'wd'] = np.nan
+data.loc[data.wd > 360,'wd'] = np.nan
 
 #%% Figure as boxplot
 plt.style.use('default')
 param = list(['o3','no','no2','co', 'tc', 'rh', 'ws', 'wd'])
 label = ['O$_3$ [$\mu$g m$^{-3}$]','NO [$\mu$g m$^{-3}$]','NO$_2$ [$\mu$g m$^{-3}$]',
          'CO [ppm]','2-m Temp. [ºC]','2-m RH [%]', '10-m W. Speed [m/s]', '10-m W. Dir. [º]']
+
 fig, ax = plt.subplots(len(param),figsize=(12,18),sharex=True)
 for i, p in enumerate(param):
     #print(i, p)
@@ -104,7 +106,8 @@ print(ozone)
 ozone_types = [stations[stations.name == i].type.values[0] for i in stat_sp]
 table = pd.DataFrame({'Type':ozone_types,
                       'Station':stat_sp}).sort_values(by='Type').reset_index(drop=True)
-print(table.to_latex(caption='xx', index=False, label='tab:xx'))
+print(table.to_latex(caption='xx', index=False, label='tab:xx'),
+      file=open('05_output/obs/tab/stations_5years.tex','w'))
 
 #%% Ozone by daily profile,by month and station type
 types = ozone.type.unique()

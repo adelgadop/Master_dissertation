@@ -21,7 +21,7 @@ stations = pd.read_csv('01_data/stations_hc.csv')
 stations.index =stations.code
 print(stations)
 
-aq_data = pd.read_pickle('01_data/processed/obs/data_all_photo.pkl')
+aq_data = pd.read_pickle('01_data/processed/obs/data_all_photo_toluene.pkl')
 parameters = ['o3', 'no', 'no2', 'co', 'ben', 'tol', 'pm10', 'pm2.5']
 for p in parameters:
     aq_data[p] = aq_data[p].astype(float)
