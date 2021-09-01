@@ -1,17 +1,30 @@
 \begin{table}
 \centering
+\begin{threeparttable}
 \caption{Statistical results for meteorological parameters for Sep-Oct 2018 (IAG/USP station)}
 \label{tab:stats_iag}
-\begin{tabular}{lrrrrrrrrrr}
+\begin{tabular}{lrrrrr}
 \toprule
-{} &     n &    MB &   MAGE &   RMSE &   IOA &     r &     Mm &     Om &    Msd &    Osd \\
+Statistic\tnote{(a)} & 2-m Temp. ($^{\circ}$C) & 2-m RH (\%) & Rain rate (mm)  & W. Speed (m~s$^{-1}$) & W. Dir. ($^{\circ}$)  \\
 \midrule
-2-m Temp. ($^{\circ}$C) &  1461 &  1.56 &   1.97 &   2.66 &  0.89 &  0.85 &  20.32 &  18.76 &   3.96 &   3.89 \\
-2-m RH (\%) &  1461 & -9.00 &  11.16 &  14.66 &  0.78 &  0.71 &  74.29 &  83.30 &  15.67 &  14.46 \\
-Rain rate (mm) &  1461 &  0.13 &   0.42 &   1.72 &  0.23 &  0.11 &   0.30 &   0.18 &   1.20 &   1.35 \\
-W. Speed (m~s$^{-1}$)&  1461 &  1.69 &   1.84 &   2.22 &  0.43 &  0.37 &   3.37 &   1.69 &   1.50 &   0.91 \\
-W. Dir. ($^{\circ}$) &  1461 &  5.03 &  32.58 &    - &   - &   - &    - &    - &    - &    - \\
+n      &  1461.00 &  1461.00 &  1461.00 &  1461.00 &  1461.00 \\
+MB     &     1.56 &    -9.00 &     0.13 &     1.69 &     5.02 \\
+MAGE   &     1.97 &    11.15 &     0.42 &     1.84 &    32.57 \\
+RMSE   &     2.66 &    14.66 &     1.72 &     2.22 &        - \\
+IOA    &     0.89 &     0.78 &     0.23 &     0.43 &        - \\
+r      &     0.85 &     0.71 &     0.11 &     0.37 &        - \\
+Mm     &    20.32 &    74.30 &     0.30 &     3.37 &        - \\
+Om     &    18.76 &    83.30 &     0.18 &     1.69 &        - \\
+Msd    &     3.96 &    15.68 &     1.20 &     1.50 &        - \\
+Osd    &     3.89 &    14.46 &     1.35 &     0.91 &        - \\
+t-stat &    61.63 &    38.51 &     4.23 &    15.21 &        - \\
+t-crit &     1.96 &     1.96 &     1.96 &     1.96 &        - \\
 \bottomrule
 \end{tabular}
+\begin{tablenotes}
+{\scriptsize
+	\item[(a)] MB = Mean bias, MAGE = Mean Absolute Gross Error, RMSE = Root Mean Square Error, Mm = Mean of modeled values, Om = Mean of observed values, Msd = Standard deviation of modeled values, and Osd = Standard deviation of observed values. Units depend on the meteorological parameter. Correlation coefficient (r) is in dimensionless units. Statistical parameters are t-test statistical (t-stat) and t critical (t-crit).}
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 

@@ -75,6 +75,8 @@ iag_met = pd.merge(iag_obs, iag_mod, left_index=True, right_index=True, suffixes
 iag_met.loc[:,'station'] = 'IAG'
 iag_met.loc[:,'code'] = 0
 iag_met.loc[:,'type'] = 'Forest preservation'
+# To analyze using openair WRPlot in R:
+iag_met.to_csv('01_data/processed/iag_met.csv')
 
 #%% Figure by parameter
 fig, ax= plt.subplots(5, figsize=(10,8),sharex=True)
@@ -140,9 +142,6 @@ parameters = ['station','type','tc_obs','rh_obs','ws_obs','wd_obs',
               'tc_mod', 'rh_mod','ws_mod', 'wd_mod']
 met = met[parameters]
 met.loc[met.wd_obs > 360,'wd_obs'] = np.nan
-
-# Export data with correction of wind direction
-met.to_csv('01_data/processed/met_obs_mod_all.csv')
 
 #%% Figures by meteorological parameter and station type ------------------------------------
 

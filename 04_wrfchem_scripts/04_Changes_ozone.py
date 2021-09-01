@@ -77,7 +77,7 @@ for mes, df in MDA8.items():
             ax[i].legend(['RCP4.5 ('+mes+'. 2030)','RCP8.5 ('+mes+'. 2030)'],
                          fontsize=7, ncol = 3)
     fig.savefig('05_output/wrfchem/fig/MDA8_type_'+mes+'_only_rcps.pdf', bbox_inches = 'tight', facecolor = 'w')
-
+   
 #%% Figures of MDA8 for all scenarios
 
 for mes, df in MDA8.items():

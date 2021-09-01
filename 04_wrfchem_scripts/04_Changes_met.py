@@ -71,18 +71,56 @@ for i, m in enumerate(['Sep','Oct']):
     ax[1].text(0, 28, '(b)', fontsize=18)
 fig.savefig('dissertation/fig/temp_sep_oct.pdf',bbox_inches='tight', facecolor='w')
 
-#%% Increase 
+#%% Increase of Temperature
 # September
 tc_incr = met_2.loc[met_2.Month =="Sep"].groupby(['station']).mean()[['tc','tc_rcp45','tc_rcp85']].round(2)
 mean = np.around((tc_incr['tc_rcp45'] - tc_incr['tc']).mean(), 2)
 sd = np.around((tc_incr['tc_rcp45'] - tc_incr['tc']).std(), 2)
-print(f"Temperature increase Sep: {mean} +/- {sd} ")
+print(f"Temperature increase Sep RCP4.5: {mean} +/- {sd} ")
 
 # October
 tc_incr = met_2.loc[met_2.Month =="Oct"].groupby(['station']).mean()[['tc','tc_rcp45','tc_rcp85']].round(2)
 mean = np.around((tc_incr['tc_rcp45'] - tc_incr['tc']).mean(), 2)
 sd = np.around((tc_incr['tc_rcp45'] - tc_incr['tc']).std(), 2)
-print(f"Temperature increase Oct: {mean} +/- {sd} ")
+print(f"Temperature increase Oct RCP4.5: {mean} +/- {sd} ")
+
+# September
+tc_incr = met_2.loc[met_2.Month =="Sep"].groupby(['station']).mean()[['tc','tc_rcp45','tc_rcp85']].round(2)
+mean = np.around((tc_incr['tc_rcp85'] - tc_incr['tc']).mean(), 2)
+sd = np.around((tc_incr['tc_rcp85'] - tc_incr['tc']).std(), 2)
+print(f"Temperature increase Sep RCP8.5: {mean} +/- {sd} ")
+
+# October
+tc_incr = met_2.loc[met_2.Month =="Oct"].groupby(['station']).mean()[['tc','tc_rcp45','tc_rcp85']].round(2)
+mean = np.around((tc_incr['tc_rcp85'] - tc_incr['tc']).mean(), 2)
+sd = np.around((tc_incr['tc_rcp85'] - tc_incr['tc']).std(), 2)
+print(f"Temperature increase Oct RCP8.5: {mean} +/- {sd} ")
+
+#%% Increase or decrease of relative humidity
+
+# September
+tc_incr = met_2.loc[met_2.Month =="Sep"].groupby(['station']).mean()[['rh','rh_rcp45','rh_rcp85']].round(2)
+mean = np.around((tc_incr['rh_rcp45'] - tc_incr['rh']).mean(), 2)
+sd = np.around((tc_incr['rh_rcp45'] - tc_incr['rh']).std(), 2)
+print(f"Rh increase Sep RCP4.5: {mean} +/- {sd} ")
+
+# October
+tc_incr = met_2.loc[met_2.Month =="Oct"].groupby(['station']).mean()[['rh','rh_rcp45','rh_rcp85']].round(2)
+mean = np.around((tc_incr['rh_rcp45'] - tc_incr['rh']).mean(), 2)
+sd = np.around((tc_incr['rh_rcp45'] - tc_incr['rh']).std(), 2)
+print(f"Rh increase Oct RCP4.5: {mean} +/- {sd} ")
+
+# September
+tc_incr = met_2.loc[met_2.Month =="Sep"].groupby(['station']).mean()[['rh','rh_rcp45','rh_rcp85']].round(2)
+mean = np.around((tc_incr['rh_rcp85'] - tc_incr['rh']).mean(), 2)
+sd = np.around((tc_incr['rh_rcp85'] - tc_incr['rh']).std(), 2)
+print(f"Rh increase Sep RCP8.5: {mean} +/- {sd} ")
+
+# October
+tc_incr = met_2.loc[met_2.Month =="Oct"].groupby(['station']).mean()[['rh','rh_rcp45','rh_rcp85']].round(2)
+mean = np.around((tc_incr['rh_rcp85'] - tc_incr['rh']).mean(), 2)
+sd = np.around((tc_incr['rh_rcp85'] - tc_incr['rh']).std(), 2)
+print(f"RH increase Oct RCP8.5: {mean} +/- {sd} ")
 
 #%% Figure of Relative humidity as monthly mean by station ------------------------
 fig, ax = plt.subplots(2,figsize=(8,6), sharex= True, gridspec_kw={'hspace':0.07})

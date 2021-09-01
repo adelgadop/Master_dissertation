@@ -92,7 +92,9 @@ data = data[~(data.duplicated())]
 
 #%% Export the all data --------------------------------------------------------------
 
+# Review this part, something wrong
 data.to_pickle('01_data/processed/all_data.pkl')
+data.to_csv('01_data/processed/all_data.csv')
 
 #%% Processing only simulation results -----------------------------------------------
 
@@ -190,6 +192,7 @@ mod_all = rcp45.merge(rcp85,on=by,suffixes=('_rcp45', '_rcp85')).merge(curr, on=
 
 # to pickle
 mod_all.to_pickle('01_data/processed/mod/mod_all_scen.pkl')
+mod_all.to_csv('01_data/processed/mod/mod_all_scen.csv')
 
 #%% Rainy conditions from simulations by scenarios -------------------------
 stations = pd.read_csv('01_data/stations.csv')

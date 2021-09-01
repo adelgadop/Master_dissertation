@@ -74,7 +74,7 @@ print(gl_sta.to_latex(caption='Global statistical results for air quality parame
 
 #%% Ozone evaluation by station type
 
-n_stats = ['n','MB', 'MAGE', 'RMSE', 'IOA', 'r', 'Mm', 'Om', 'Msd', 'Osd']
+n_stats = ['n','MB', 'MAGE', 'RMSE', 'NMB', 'NME', 'IOA', 'r', 'Mm', 'Om', 'Msd', 'Osd']
 some_stats = ['NMB', 'NME']
 o3_stats = {}
 
@@ -95,7 +95,10 @@ print(o3_sta.to_latex(caption='Statistical results for surface ozone',
 
 #%% Ozone evaluation by station
 
+# Only considering a cutoff value of 80 for NMB and NME
+
 sta_nam = {}
+n_stats = ['n','MB', 'MAGE', 'RMSE', 'IOA', 'r', 'Mm', 'Om', 'Msd', 'Osd']
 
 for name, df in dic.items():
     
@@ -186,6 +189,7 @@ for name, df_stat in zip(['sep18', 'oct18'], sta_nam.values()):
     ax[1,1].set_xlabel('Stations')
 
     fig.savefig('05_output/evaluation/fig/o3_stats_'+name+'.pdf',bbox_inches='tight', facecolor='w')
+    fig.savefig('dissertation/fig/o3_stats_'+name+'.pdf',bbox_inches='tight', facecolor='w')
     
 #%% Figure of MDA8  ---------------------------------------------------------------------------
 
@@ -231,7 +235,7 @@ for mes, MDA8 in zip(['sep18', 'oct18'], mda8.values()):
         if i == len(types)-1:
             ax[i].legend(['Obs','WRF-Chem'],fontsize=6)
             
-    fig.savefig('05_output/evaluation/fig/MDA8_type_'+mes+'.pdf',bbox_inches='tight', facecolor='w')
+    fig.savefig('dissertation/fig/MDA8_type_'+mes+'.pdf',bbox_inches='tight', facecolor='w')
     
 #%% Figure of ozone as times series by type
 
@@ -241,14 +245,14 @@ mev.subplots2(all_data.set_index('local_date'), #[data.station.isin(gr_1)]
          xlabel='Local Time',
          suffixes=['_obs','_mod'],
          legend=['Obs','WRF-Chem'],
-         size=(10,8),
+         size=(8,8),
          n_yticks=5,
          n_xticks=2,
          filename = 'dissertation/fig/Sep_Oct18_type',
          alpha=.5,
          markersize=3,
          lw=2,
-         labelsize=6, 
+         labelsize=7, 
          by='type')
 
 #%% Figure by some stations
@@ -285,7 +289,7 @@ mev.subplots2(df_plot.set_index('local_date'), #[data.station.isin(gr_1)]
          n_xticks=2,
          filename='05_output/evaluation/fig/Sep_Oct18_station',
          alpha=.7,
-         markersize=2,
+         markersize=3,
          lw=2,
          labelsize=6, 
          by='station')
@@ -298,10 +302,10 @@ mev.subplots2(df_plot.set_index('local_date'), #[data.station.isin(gr_1)]
          legend=['Obs','WRF-Chem'],
          size=(8,8),
          n_yticks=5,
-         n_xticks=2,
-         filename='05_output/evaluation/fig/Sep_Oct18_station',
+         n_xticks=3,
+         filename='dissertation/fig/Sep_Oct18_station',
          alpha=.7,
-         markersize=2,
+         markersize=3,
          lw=2,
          labelsize=6, 
          by='station')
@@ -377,6 +381,8 @@ for i, t in enumerate(['Regional urban', 'Urban', 'Urban park']): # only in 3 st
         ax[i].legend(legend,fontsize=7, ncol = 3)
         
 fig.savefig('05_output/evaluation/fig/Sep_Oct18_type_subplot_co.pdf',
+            bbox_inches = 'tight', facecolor = 'w')
+fig.savefig('dissertation/fig/Sep_Oct18_type_subplot_co.pdf',
             bbox_inches = 'tight', facecolor = 'w')
 
 #%% Figure by hour of day
