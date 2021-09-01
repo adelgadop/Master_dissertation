@@ -1,5 +1,6 @@
 .spyproject/*
 *.ini
+.Rhistory
 *.bak
 .DS_Store
 air_data_5years.pkl
