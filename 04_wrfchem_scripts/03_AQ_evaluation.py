@@ -255,6 +255,24 @@ mev.subplots2(all_data.set_index('local_date'), #[data.station.isin(gr_1)]
          labelsize=7, 
          by='type')
 
+#%% Figure of ozone as times series by type for the article
+
+mev.subplots2(all_data.set_index('local_date'), #[data.station.isin(gr_1)]
+         pol='o3',
+         ylabel='O$_3$ [$\mu$gm$^{-3}$]',
+         xlabel='Local Time',
+         suffixes=['_obs','_mod'],
+         legend=['Obs','WRF-Chem'],
+         size=(10,10),
+         n_yticks=5,
+         n_xticks=2,
+         filename = '../article/fig/Sep_Oct18_type',
+         alpha=.5,
+         markersize=3,
+         lw=2,
+         labelsize=7, 
+         by='type')
+
 #%% Figure by some stations
 
 st_names = ['Pico do Jaraguá','Paulínia','Campinas-Taquaral','Carapicuíba','Ibirapuera']

@@ -196,7 +196,7 @@ def subplots2(df,pol,ylabel,xlabel,suffixes,legend, size, n_yticks, n_xticks,fil
         ax[i].axvspan('2018-09-14', '2018-09-16 01:00', 
            label="Not analyzed",facecolor="0", alpha=0.2)
         if i == len(df_1[by].unique())-1:
-            ax[i].legend(fontsize=5,ncol=3)
+            ax[i].legend(fontsize=8,ncol=3)
     fig.savefig(filename+'_subplot_'+pol+'.pdf',bbox_inches='tight', facecolor='w')
     #start_remove = pd.to_datetime('2018-09-14').tz_localize('America/Sao_Paulo')
     #end_remove = pd.to_datetime('2018-09-16').tz_localize('America/Sao_Paulo')
