@@ -153,6 +153,6 @@ for i,t in enumerate(types):
         ax[i].legend(['Surface ozone (max.)'], loc=0, fontsize=12)
         ax1.legend(['2-m Temp. (mean)'], loc=3, fontsize=12)
     if i == 2:
-        ax[i].set_ylabel('MAD8 Ozone ($\mu$g m$^{3}$)')
+        ax[i].set_ylabel('MDA8 Ozone ($\mu$g m$^{3}$)')
         ax1.set_ylabel('2-m Temperature (ºC)')
 fig.savefig("dissertation/fig/ozone_2014_2018_series.pdf",bbox_inches='tight', facecolor='w')
