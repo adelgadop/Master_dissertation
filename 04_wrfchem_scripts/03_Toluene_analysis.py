@@ -67,57 +67,91 @@ df_1 = data[['station','type','tol_obs','tol_mod','o3_obs','o3_mod',
            'no_obs','no_mod','no2_obs','no2_mod','co_obs','co_mod']].dropna(how='all')
 
 
-fig, ax = plt.subplots(2,1,sharex=True, figsize=(6,4*2), gridspec_kw={'hspace':0.15})
+fig, ax = plt.subplots(3,1,sharex=True, figsize=(6,4*3), gridspec_kw={'hspace':0.15})
 alpha = .1
 t = 'Urban'
 df = df_1[df_1.type == t].dropna()
 mean = df.groupby(df.index.hour).mean()
 sd = df.groupby(df.index.hour).std()
 
-# Observed values
-mean.plot(y=['o3_obs', 'no_obs', 'no2_obs'], 
-          style=['-o','-','-s'], 
-          color=['b', 'darkorange','r'], 
-          lw=3,ax=ax[0], legend=False)
-ax[0].fill_between(mean.index, mean.o3_obs+sd.o3_obs,mean.o3_obs-sd.o3_obs,
-                       color='b',alpha=alpha )
-ax[0].set_ylim(0,150)
-ax[0].set_title(str(df.station.unique()[0])+' - '+t + ' (Obs.)', loc='left', fontsize=10)
-ax[0].set_xlabel('Hours (Local Time)')
-plt.xticks(np.arange(0,24,2))
-    
-    
-ax1 = ax[0].twinx()
-mean.plot(y=['co_obs','tol_obs'], ax=ax1, style=['-g','-oc'], lw=2.5, legend=False)
-ax1.set_ylim(0,14)
-
-ax[0].set_ylabel('O$_3$, NO, NO$_2$ [$\mu$gm$^{-3}$]', loc='center')
-ax1.set_ylabel('CO [ppm], Toluene [$\mu$gm$^{-3}$]',loc='center')
-ax[0].legend(['O$_3$','NO','NO$_2$'], ncol=3, fontsize=8, loc=2)
-ax1.legend(['CO','Tol'], fontsize=8, loc=1, ncol=2)
+diff = pd.DataFrame({'o3' : mean.o3_mod - mean.o3_obs,
+                     'no' : mean.no_mod - mean.no_obs,
+                     'no2': mean.no2_mod - mean.no2_obs,
+                     'co' : mean.co_mod - mean.co_obs,
+                     'tol': mean.tol_mod - mean.tol_obs
+                     })
 
 # Simulated values
+# --------------- #
 mean.plot(y=['o3_mod', 'no_mod', 'no2_mod'], 
           style=['-o','-','-s'], 
           color=['b', 'darkorange','r'], 
-          lw=3,ax=ax[1], legend=False)
-ax[1].fill_between(mean.index, mean.o3_mod+sd.o3_mod,mean.o3_mod-sd.o3_mod,
+          lw=3,ax=ax[0], legend=False)
+ax[0].fill_between(mean.index, mean.o3_mod+sd.o3_mod,mean.o3_mod-sd.o3_mod,
                        color='b',alpha=alpha )
-ax[1].set_ylim(0,150)
-ax[1].set_title(str(df.station.unique()[0])+' - '+t + ' (Mod.)', loc='left', fontsize=10)
-ax[1].set_xlabel('Hours (Local Time) \n (Sep-Oct, 2018), grouped by hour')
+ax[0].set_ylim(0,150)
+ax[0].set_title(str(df.station.unique()[0])+' - '+t + ' [Mod]', loc='left', fontsize=10)
+ax[0].set_xlabel('Hours (Local Time) \n (Sep-Oct, 2018), grouped by hour')
 plt.xticks(np.arange(0,24,2))
     
+ax1 = ax[0].twinx()
+mean.plot(y=['co_mod','tol_mod'], ax=ax1, style=['-g','o-c'], lw=2.5, legend=False)
+ax1.set_ylim(0,14)
+
+#ax[0].set_ylabel('O$_3$, NO, NO$_2$ [$\mu$gm$^{-3}$]', loc='center')
+#ax1.set_ylabel('CO [ppm], Toluene [$\mu$gm$^{-3}$]',loc='center')
+#ax[1].legend(['O$_3$','NO','NO$_2$'], ncol=3, fontsize=8, loc=2)
+#ax2.legend(['CO','Tol'], fontsize=8, loc=1, ncol=2)
+
+
+# Observed values
+# --------------- #
+mean.plot(y=['o3_obs', 'no_obs', 'no2_obs'], 
+          style=['-o','-','-s'], 
+          color=['b', 'darkorange','r'], 
+          lw=3,ax=ax[1], legend=False)
+ax[1].fill_between(mean.index, mean.o3_obs+sd.o3_obs,mean.o3_obs-sd.o3_obs,
+                       color='b',alpha=alpha )
+ax[1].set_ylim(0,150)
+ax[1].set_title(str(df.station.unique()[0])+' - '+t + ' [Obs]', loc='left', fontsize=10)
+ax[1].set_xlabel('Hours (Local Time)')
+plt.xticks(np.arange(0,24,2))
+    
+    
 ax2 = ax[1].twinx()
-mean.plot(y=['co_mod','tol_mod'], ax=ax2, style=['-g','o-c'], lw=2.5, legend=False)
+mean.plot(y=['co_obs','tol_obs'], ax=ax2, style=['-g','-oc'], lw=2.5, legend=False)
 ax2.set_ylim(0,14)
 
 ax[1].set_ylabel('O$_3$, NO, NO$_2$ [$\mu$gm$^{-3}$]', loc='center')
 ax2.set_ylabel('CO [ppm], Toluene [$\mu$gm$^{-3}$]',loc='center')
-#ax[1].legend(['O$_3$','NO','NO$_2$'], ncol=3, fontsize=8, loc=2)
-#ax2.legend(['CO','Tol'], fontsize=8, loc=1, ncol=2)
-fig.savefig('dissertation/fig/pol_hour_tol.pdf',bbox_inches='tight', facecolor='w')
+ax[1].legend(['O$_3$','NO','NO$_2$'], ncol=3, fontsize=8, loc=2)
+ax2.legend(['CO','Tol'], fontsize=8, loc=1, ncol=2)
+
+
+# Differences
+# --------------- #
+diff.plot(y=['o3', 'no', 'no2'], 
+          style=['-o','-','-s'], 
+          color=['b', 'darkorange','r'], 
+          lw=3, ax=ax[2], legend=False)
+
+ax[2].set_title(str(df.station.unique()[0])+' - '+t + ' [Mod - Obs]', loc='left', fontsize=10)
+ax[2].set_xlabel('Hours (Local Time) \n (Sep-Oct, 2018), grouped by hour')
+plt.xticks(np.arange(0,24,2))
+
+ax3 = ax[2].twinx()
+diff.plot(y=['co','tol'], ax=ax3, style=['-g','o-c'], lw=2.5, legend=False)
+ax3.set_ylim(-14,14)
+
+#ax[2].set_ylabel('O$_3$, NO, NO$_2$ [$\mu$gm$^{-3}$]', loc='center')
+#ax3.set_ylabel('CO [ppm], Toluene [$\mu$gm$^{-3}$]',loc='center')
+
+
+#fig.savefig('dissertation/fig/pol_hour_tol.pdf',bbox_inches='tight', facecolor='w')
 fig.savefig('05_output/evaluation/fig/pol_hour_tol.pdf',bbox_inches='tight', facecolor='w')
+fig.savefig('../article/fig/pol_hour_tol.pdf',bbox_inches='tight', facecolor='w')
+
+
 
 #%% Toluene figures ---------------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(8,3))

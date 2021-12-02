@@ -60,7 +60,7 @@ fig, ax = plt.subplots(2,figsize=(8,6), sharex= True, gridspec_kw={'hspace':0.07
 for i, m in enumerate(['Sep','Oct']):
     df = met_2.loc[met_2.Month == m].groupby(['station']).mean()[['tc','tc_rcp45','tc_rcp85']]
     df.plot(rot=90, ax=ax[i], style=['go','co','ro'], markersize = 4.5, markeredgecolor = '0.4')
-    ax[i].legend(['Current ('+m+'. 2018)','RCP 4.5 ('+m+'. 2030)','RCP 8.5 ('+m+'. 2030)'], fontsize=7, ncol=3)
+    ax[i].legend(['Base Case ('+m+'. 2018)','RCP 4.5 ('+m+'. 2030)','RCP 8.5 ('+m+'. 2030)'], fontsize=7, ncol=3)
     ax[i].set_ylabel('2-m temp. [ºc]')
     xtick_labels = list(df.index)
     ax[i].set_xticks(range(len(xtick_labels)))
@@ -69,7 +69,9 @@ for i, m in enumerate(['Sep','Oct']):
     ax[i].set_xticklabels(xtick_labels, rotation='vertical', fontdict={'fontsize':7})
     ax[0].text(0, 28, '(a)', fontsize=18)
     ax[1].text(0, 28, '(b)', fontsize=18)
-fig.savefig('dissertation/fig/temp_sep_oct.pdf',bbox_inches='tight', facecolor='w')
+# fig.savefig('dissertation/fig/temp_sep_oct.pdf',bbox_inches='tight', facecolor='w')
+
+fig.savefig('../article/fig/temp_sep_oct.pdf',bbox_inches='tight', facecolor='w')
 
 #%% Increase of Temperature
 # September
@@ -127,7 +129,7 @@ fig, ax = plt.subplots(2,figsize=(8,6), sharex= True, gridspec_kw={'hspace':0.07
 for i, m in enumerate(['Sep','Oct']):
     df = met_2.loc[met_2.Month == m].groupby(['station']).mean()[['rh','rh_rcp45','rh_rcp85']]
     df.plot(rot=90, ax=ax[i], style=['go','co','ro'], markersize = 4.5, markeredgecolor = '0.4')
-    ax[i].legend(['Current ('+m+'. 2018)','RCP 4.5 ('+m+'. 2030)','RCP 8.5 ('+m+'. 2030)'], fontsize=7, ncol=3)
+    ax[i].legend(['Base case ('+m+'. 2018)','RCP 4.5 ('+m+'. 2030)','RCP 8.5 ('+m+'. 2030)'], fontsize=7, ncol=3)
     ax[i].set_ylabel('2-m relative humidity [%]')
     xtick_labels = list(df.index)
     ax[i].set_xticks(range(len(xtick_labels)))
@@ -136,7 +138,8 @@ for i, m in enumerate(['Sep','Oct']):
     ax[i].set_xticklabels(xtick_labels, rotation='vertical', fontdict={'fontsize':7})
     ax[0].text(0, 82, '(a)', fontsize=18)
     ax[1].text(0, 82, '(b)', fontsize=18)
-fig.savefig('dissertation/fig/rh_sep_oct.pdf',bbox_inches='tight', facecolor='w')
+# fig.savefig('dissertation/fig/rh_sep_oct.pdf',bbox_inches='tight', facecolor='w')
+fig.savefig('../article/fig/rh_sep_oct.pdf',bbox_inches='tight', facecolor='w')
 
 for m in ['Sep', 'Oct']:
     rh_incr = met_2.loc[met_2.Month == m].groupby(['station']).mean()[['rh','rh_rcp45','rh_rcp85']].round(2)
@@ -197,13 +200,13 @@ rain_iag = rain_mod[rain_mod.name =='IAG'].drop('code',axis=1).loc['2018-09-01':
 fig, ax = plt.subplots()
 rain_iag.groupby(rain_iag.index.month).sum().plot(kind='bar',y=['rr','rr_rcp45','rr_rcp85'],
                                                   color=['g','c','#D22523'], 
-                                                  label=['Current (2018)','RCP 4.5 (2030)','RCP 8.5 (2030)'],
+                                                  label=['Base case (2018)','RCP 4.5 (2030)','RCP 8.5 (2030)'],
                                                   rot=0, 
                                                   xlabel='Month', 
                                                   ylabel='Rain rate [mm]',
                                                   edgecolor='k', ax=ax)
 ax.set_xticklabels(['September','October'])
 ax.legend(ncol=1, fontsize=7)
-fig.savefig('dissertation/fig/rain_bymonth.pdf',bbox_inches='tight', facecolor='w')
-
+#fig.savefig('dissertation/fig/rain_bymonth.pdf',bbox_inches='tight', facecolor='w')
+fig.savefig('../article/fig/rain_bymonth.pdf',bbox_inches='tight', facecolor='w')
 

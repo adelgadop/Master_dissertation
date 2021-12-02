@@ -18,6 +18,7 @@ import scipy
 import statsmodels.api as sm
 import matplotlib.dates as md
 import functions.mod_stats as ms
+import matplotlib as mpl
 
 
 #%% Meteorological simulations for the IAG climatological station ------------------
@@ -100,11 +101,26 @@ fig.savefig('dissertation/fig/met_IAG_comparison.pdf',
 
 #%% Figure for rainfall
 fig, ax = plt.subplots(figsize=(6,3))
-iag_met.resample('D').sum().plot(y=['rr_obs','rr_mod'], style=['k','g'], ax=ax, lw=2)
+dr = iag_met.resample('D').sum()[['rr_mod', 'rr_obs']]
+dr.loc[:, 'dif'] = dr.rr_mod - dr.rr_obs
+dr.loc[dr.dif > 0, 'dif_p' ] = dr.dif
+dr.loc[dr.dif < 0, 'dif_n' ] = dr.dif
+
+#%%
+dr.plot(y = ['rr_mod', 'rr_obs'], style=['k','g'], ax=ax, lw=2)
 ax.set_xlabel('Local Time')
 ax.set_ylabel('Daily total rain [mm]')
 ax.legend(['Obs','Mod'])
 fig.savefig('dissertation/fig/iag_daily_rain.pdf',bbox_inches='tight', facecolor='w')
+
+
+fig2, ax1 = plt.subplots(figsize=(5,3))
+axes = dr.plot(y = 'dif', ax = ax1, lw=0.5, style = 'k-', legend = False)
+dr.plot(y = ['dif_p', 'dif_n'], ax = ax1, lw=2, color=['crimson', 'deepskyblue'], style = 'o', legend = False)
+axes.axhline(0, c='black', ls='--', lw = 0.5)
+ax1.set_ylabel('Mod - Obs [mm]')
+ax1.set_xlabel('Day')
+fig2.savefig('../article/fig/diff_daily_rain.pdf',bbox_inches='tight', facecolor='w')
 
 #%% Statistical Evaluation ----------------------------------------------------------------------
 # IAG station

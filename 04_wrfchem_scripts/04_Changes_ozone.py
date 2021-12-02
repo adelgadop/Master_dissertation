@@ -14,7 +14,8 @@ import matplotlib.dates as md
 import matplotlib as mpl
 import pickle as pkl
 import functions.mod_eval as mev
-from mpl_toolkits.basemap import Basemap
+# from mpl_toolkits.basemap import Basemap # not installed
+from uncertainties import ufloat
 
 #%% Import data from simulations by scenarios ------------------------------------
 
@@ -43,6 +44,7 @@ months = {'Sep': mod_all.loc[mod_all.month == 9,:],
 
 MDA8 = {}
 
+
 for mes, df in months.items():
     o3 = df[['local_date','station','type', 'o3','o3_rcp45','o3_rcp85']].set_index('local_date')
     roll_o3 = {}
@@ -57,6 +59,43 @@ for mes, df in months.items():
         MDA8[mes] = rollo3.groupby(['day','station','type']).max().reset_index().dropna()
     
         types = list(MDA8[mes].sort_values(by='type',ascending=True).type.unique())
+
+
+#%% Histogram 
+plt.style.use("default")
+fig, ax = plt.subplots(2, 1, figsize = (5,8), sharex = True, gridspec_kw={'hspace':0.10})
+
+for i, (mes, df) in enumerate(months.items()):
+    o3 = df[['local_date','station','type', 'o3','o3_rcp45','o3_rcp85']].set_index('local_date')
+    o3.plot(kind = "hist", density = True, color = ['g','c','#D22523'], edgecolor = 'k', lw = 1,
+            alpha = 0.65, bins = 15, ax = ax[i]) # change density to true, because KDE uses density
+    # Plot KDE
+    o3.plot(kind = "kde", ax = ax[i], color = ['g','c','#D22523'], lw = 3)
+
+    # X
+    ax[i].set_xlabel("Hourly O$_3$ ($\mu$g m$^{-3}$)")
+    # Limit x range to 0-4
+    x_start, x_end = 0, 250
+    ax[i].set_xlim(x_start, x_end)
+
+    # Y
+    ax[i].set_ylim(0, 0.015)
+    #ax[i].set_yticklabels([])
+    ax[i].set_ylabel("")
+
+    # Legend
+    ax[i].legend(['Base case ('+mes+'. 2018)','RCP4.5 ('+mes+'. 2030)',
+                          'RCP8.5 ('+mes+'. 2030)'],fontsize=10, ncol = 1)
+
+    # Overall
+    ax[i].grid(False)
+
+    # Remove ticks and spines
+    ax[i].tick_params(left = False, bottom = False)
+    for ax[i], spine in ax[i].spines.items():
+         spine.set_visible(False)
+
+fig.savefig('../article/fig/hist_o3_sim.pdf', bbox_inches = 'tight', facecolor = 'w')
 
 #%% Figures of MDA8 by station type only rcps-------------------------------------
 
@@ -182,20 +221,73 @@ for mes, o3_mean in o3_mda8_mean.items():
 
 # September
 o3_mean_type = MDA8['Sep'].groupby('type').mean().reset_index().drop('day',axis=1).round(2).set_index("type")
+o3_std_type = MDA8['Sep'].groupby('type').std().reset_index().drop('day',axis=1).round(2).set_index("type")
+
+
 o3_mean_type.rename(columns={"o3": "Sep. 2018", 
                              "o3_rcp45": "Sep. 2030 (RCP 4.5)", 
                              "o3_rcp85": "Sep. 2020 (RCP 8.5)"}, inplace = True)
+
+o3_std_type.rename(columns={"o3": "Sep. 2018", 
+                             "o3_rcp45": "Sep. 2030 (RCP 4.5)", 
+                             "o3_rcp85": "Sep. 2020 (RCP 8.5)"}, inplace = True)
+
+
 print(o3_mean_type.to_latex(label="o3_sep_type", caption = "MDA8 ozone monthly average for September"),
       file=open('05_output/wrfchem/tab/o3_changes_type_Sep.tex','w'))
 
+print(o3_std_type.to_latex(label="o3_sep_type", caption = "MDA8 ozone monthly std for September"),
+      file=open('05_output/wrfchem/tab/o3_std_type_Sep.tex','w'))
+
 # October
 o3_mean_type = MDA8['Oct'].groupby('type').mean().reset_index().drop('day',axis=1).round(2).set_index("type")
+o3_std_type = MDA8['Oct'].groupby('type').std().reset_index().drop('day',axis=1).round(2).set_index("type")
+
 o3_mean_type.rename(columns={"o3": "Oct. 2018", 
                              "o3_rcp45": "Oct. 2030 (RCP 4.5)", 
                              "o3_rcp85": "Oct. 2020 (RCP 8.5)"}, inplace = True)
+o3_std_type.rename(columns={"o3": "Sep. 2018", 
+                             "o3_rcp45": "Sep. 2030 (RCP 4.5)", 
+                             "o3_rcp85": "Sep. 2020 (RCP 8.5)"}, inplace = True)
+
 print(o3_mean_type.to_latex(label="o3_oct_type", caption = "MDA8 ozone monthly average for October"),
       file=open('05_output/wrfchem/tab/o3_changes_type_Oct.tex','w'))
+print(o3_std_type.to_latex(label="o3_oct_type", caption = "MDA8 ozone monthly std for October"),
+      file=open('05_output/wrfchem/tab/o3_std_type_Oct.tex','w'))
+
+#%% Sum of uncertainties
 
 
+Sep = {'Industry'           : {'2018': ufloat(100.45, 23.41), 'rcp45': ufloat(94.35, 15.70), 'rcp85': ufloat( 98.55, 21.54)},
+       'Regional urban'     : {'2018': ufloat( 97.04, 20.75), 'rcp45': ufloat(90.66, 18.66), 'rcp85': ufloat( 99.93, 19.40)},
+       'Forest preservation': {'2018': ufloat( 92.67, 25.57), 'rcp45': ufloat(84.77, 32.05), 'rcp85': ufloat(106.13, 29.23)},
+       'Urban'              : {'2018': ufloat( 90.47, 24.21), 'rcp45': ufloat(81.82, 30.29), 'rcp85': ufloat(105.48, 28.81)},
+       'Urban park'         : {'2018': ufloat( 90.24, 23.01), 'rcp45': ufloat(81.99, 30.20), 'rcp85': ufloat(105.37, 29.01)},
+       }
+
+Oct = {'Industry'           : {'2018': ufloat( 95.04, 15.60), 'rcp45': ufloat(104.81, 24.17), 'rcp85': ufloat( 98.64, 22.70)},
+       'Regional urban'     : {'2018': ufloat( 91.42, 16.34), 'rcp45': ufloat( 98.15, 24.26), 'rcp85': ufloat( 91.00, 23.63)},
+       'Forest preservation': {'2018': ufloat( 79.69, 25.87), 'rcp45': ufloat( 89.70, 33.26), 'rcp85': ufloat( 84.20, 30.23)},
+       'Urban'              : {'2018': ufloat( 80.04, 27.80), 'rcp45': ufloat( 87.73, 34.27), 'rcp85': ufloat( 80.26, 28.06)},
+       'Urban park'         : {'2018': ufloat( 80.38, 28.35), 'rcp45': ufloat( 87.36, 34.95), 'rcp85': ufloat( 80.98, 28.86)},
+       }
+
+umda8 = pd.concat([pd.DataFrame(Sep), pd.DataFrame(Oct)], keys = (['Sep', 'Oct'])).T
+
+print('Sep RCP4.5: ')
+for k in Sep.keys():
+    print('{:10.2f}'.format(Sep[k]['rcp45'] - Sep[k]['2018']))
+
+print('Sep RCP8.5: ')
+for k in Sep.keys():
+    print('{:10.2f}'.format(Sep[k]['rcp85'] - Sep[k]['2018']))
+
+print('Oct RCP4.5: ')
+for k in Oct.keys():
+    print('{:10.2f}'.format(Oct[k]['rcp45'] - Oct[k]['2018']))
+
+print('Oct RCP8.5: ')
+for k in Oct.keys():
+    print('{:10.2f}'.format(Oct[k]['rcp85'] - Oct[k]['2018']))
 
 
