@@ -9,6 +9,7 @@ all_data.csv
 obs18.pkl
 curr_data.pkl
 mod_all_scen.pkl
+*.ncl
 .Rproj.user
 mod_all_scen.csv
 dissertation/*
